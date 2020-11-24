@@ -1,4 +1,8 @@
 class SymptomsController < ApplicationController
+  def index
+    @symptoms = Symptom.all
+  end
+
   def new
     @disease = Disease.find(params[:disease_id])
     @symptom = Symptom.new
