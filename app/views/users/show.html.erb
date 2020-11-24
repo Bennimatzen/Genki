@@ -1,9 +1,12 @@
-<h2>hi <%= @user %></h2>
+<h2>Hi <%= @user.first_name %>!</h2>
 
+<%= link_to "Your symptoms", disease_symptoms_path(@user.diseases[0]) %>
+
+<h3>Latest checks:</h3>
 <ul>
   <% @symptom_checks.each do |check| %>
   <li>
-  <%= check.rating %>
+  <%= check.symptom.name %>: <%= check.rating %>/10 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
   </li>
   <% end %>
 </ul>

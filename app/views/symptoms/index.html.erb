@@ -1,0 +1,7 @@
+<h4>Your symptoms</h4>
+<% @symptoms.each do |symptom| %>
+  <div class="container">
+    <h4><%= symptom.name %></h4>
+    <%= link_to "Daily Imput", new_symptom_check_path %>
+  </div>
+<% end %>
