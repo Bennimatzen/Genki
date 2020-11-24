@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :symptom_checks, only: [:new, :create]
   resources :diseases, only: [:new, :create] do
-    resources :symptoms, only: [:new, :create]
+    resources :symptoms, only: [:index, :new, :create]
   end
 end
