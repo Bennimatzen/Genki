@@ -1,0 +1,5 @@
+<h3>Add a new disease</h3>
+<%= simple_form_for [ @disease ] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Create Disease", class: "btn btn-primary" %>
+<% end %>
