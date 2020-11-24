@@ -1,0 +1,19 @@
+.sign-up-form a {
+  color: $primarygrey;
+}
+
+.sign-up-form .btn {
+  background-color: $buttonblue;
+  padding: 8px 24px;
+  width: 200px;
+  border-radius: 50px;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sign-up-form .btn:hover {
+  opacity: 0.6;
+}
