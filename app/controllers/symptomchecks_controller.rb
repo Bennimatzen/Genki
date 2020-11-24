@@ -1,2 +1,0 @@
-class SymptomchecksController < ApplicationController
-end
