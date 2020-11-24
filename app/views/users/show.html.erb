@@ -1,1 +1,10 @@
 <h2>hi <%= @user %></h2>
+
+<ul>
+  <% @symptom_checks.each do |check| %>
+  <li>
+  <%= check.rating %>
+  </li>
+  <% end %>
+</ul>
+
