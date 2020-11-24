@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :diseases
+  has_many :symptoms, through: :diseases
   has_many :symptomchecks
 end
