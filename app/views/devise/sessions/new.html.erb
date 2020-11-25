@@ -8,7 +8,7 @@
       <br>
       <br>
       <br>
-<h4>Log in</h4>
+<h4 class="headers">Log in</h4>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -19,18 +19,32 @@
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+
+  <!-- <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+  </div> -->
+
+    <!-- <div class="form-check">
+      <div class="form-check-input"> -->
+        <%= f.input :remember_me, as: :boolean%>
+
+      <!-- </div>
+    </div> -->
+<br>
+<br>
 
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in", class: "btn btn-ghost mb-4"%>
+    </div>
 <% end %>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-ghost mb-4" %><br />
 
-<%= render "devise/shared/links" %>
-</div>
+    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-ghost" %><br />
+<%#= render "devise/shared/links"  %>
+  </div>
     </div>
   </div>
-<!-- </div>
- -->
+</div>
+

@@ -12,11 +12,22 @@
   </head>
 
   <body>
-    <% if current_user %>
-    <%= render 'shared/navbar' %>
-    <% end %>
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="page-container">
+      <div class="navbar-container">
+        <% if current_user %>
+          <%= render 'shared/navbar' %>
+        <% end %>
+      </div>
+      <div class="content-container">
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      </div>
+      <div class="footer-container">
+        <%= render "shared/footer" %>
+      </div>
+    </div>
   </body>
 </html>
+
+
+

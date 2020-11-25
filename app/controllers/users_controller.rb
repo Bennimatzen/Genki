@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     @symptom_checks = SymptomCheck.all
+    @symptom_check = SymptomCheck.new
   end
 
   private

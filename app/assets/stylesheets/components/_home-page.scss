@@ -1,18 +1,43 @@
+.color {
+  background-color: rgb(246, 155, 150);
+  background-image: asset-url(registerphoto1);
+  background-size: contain;
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+
 .headings {
   text-align: center;
-
-
 }
 
-body {
-  background-color: white;
+.headers {
+  text-align: center
 }
+
+
+// body {
+//   background-color: rgb(246, 155, 150);
+//   // background-image: url(registerphoto.png);
+//   // object-fit: cover;
+// }
 
 .img_home {
-  width:250px;
-  padding-right: 48px;
+  // width:300px;
+  // padding-right: 85px;
+  // height: 500px;
+  // width: 150%;
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+  // background-color: rgb(246, 155, 150);
 
-}
+ }
 
 .col-7 {
   text-align: center;
@@ -20,9 +45,19 @@ body {
 
 }
 
+.landingpage-details {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  text-align: center;
+
+}
+
 .discreption-text {
   text-align: center;
-  padding: 2px;
+  margin: 20px;
+  // padding: 2px;
+  // text-align: right;
 }
 
 .background-color {
@@ -31,15 +66,18 @@ body {
 
 
 .btn-ghost {
-  color: #4A4A4A;
+  color: white;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+  // opacity: 0.6;
   transition: opacity 0.3s ease;
   width: 100%;
   text-align: center;
+  background-color: rgb(5, 80, 251);
+  font: white;
+  // box-shadow: 1px 1px 1px 1px;
 }
 
 .btn-ghost:hover {

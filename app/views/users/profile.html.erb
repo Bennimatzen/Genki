@@ -1,13 +1,56 @@
-<h2>Hi <%= @user.first_name %>!</h2>
+<% def greeting %>
+  <% current_time = Time.now.to_i %>
+  <% midnight = Time.now.beginning_of_day.to_i %>
+  <% noon = Time.now.middle_of_day.to_i %>
+  <% five_pm = Time.now.change(:hour => 17 ).to_i %>
 
+  <% case %>
+    <% when midnight.upto(noon).include?(current_time) %>
+      <% return "Good Morning" %>
+    <% when noon.upto(five_pm).include?(current_time) %>
+      <% return "Good Afternoon" %>
+    <% when five_pm.upto(midnight + 1.day).include?(current_time) %>
+      <% return "Good Evening" %>
+  <% end %>
+<% end %>
+
+<h2><%= greeting %>, <%= @user.first_name %></h2>
 <%= link_to "Your symptoms", disease_symptoms_path(@user.diseases) %>
 
-<h3>Latest checks:</h3>
-<ul>
-  <% @symptom_checks.each do |check| %>
-  <li>
-  <%= check.symptom.name %>: <%= check.rating %>/10 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
-  </li>
-  <% end %>
-</ul>
+<div class="container mt-4 border-bottom border-warning border-10 d-flex justify-content-start">
+  <button class="btn user-tab" data-target="symptoms">Symptoms</button>
+  <button class="btn user-tab" data-target="prescriptions">Prescriptions</button>
+  <button class="btn user-tab" data-target="appointments">Appointments</button>
+</div>
+
+<div class="container" style="margin-top: 24px;">
+  <div class="user-ul active" id="symptoms">
+    <div class="slider-card">
+    <% if SymptomCheck.all.first.created_at != Date.today # this is not working properly %>
+      <%= simple_form_for @symptom_check do |f| %>
+        <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 5, id: 'rating-slider' }, required: false %>
+        <p id='slider-text'>Same as usual</p>
+        <%= f.button :submit, value: 'Submit', class: 'btn-ghost-small' %>
+      <% end %>
+    <% end %>
+
+  </div>
+  <p>History:</p>
+  <ul>
+    <% @symptom_checks.each do |check| %>
+    <li>
+    <%= check.symptom.name %>: <%= check.rating %>/5 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
+    </li>
+    <% end %>
+  </ul>
+  </div>
+
+  <div class="user-ul" id="prescriptions">
+    <p>Something</p>
+  </div>
+
+  <div class="user-ul" id="appointments">
+    <p>Something else</p>
+  </div>
+</div>
 

@@ -10,8 +10,8 @@ Disease.destroy_all
 User.destroy_all
 
 puts "Creating users..."
-ellie = User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes", dob: "25/08/2001", nhs_number: "3437773456", gender: "Female")
 
+User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes", dob: DateTime.new(2001,12,10), gender: "Female", nhs_number: 12345678)
 ellie.photo.attach(io: file, filename: 'ellie.jpeg', content_type: 'image/jpeg')
 
 puts "Creating diseases..."
@@ -20,6 +20,10 @@ Disease.create!(user: User.all.sample, name: "Cystic Fibrosis")
 puts "Creating symptoms..."
 Symptom.create!(disease: Disease.all.sample, name: "Cough")
 
+puts "Creating checks..."
+SymptomCheck.create!(user: User.all.sample, symptom: Symptom.all.sample, rating: 5, description: "Feeling regular", created_at: (Date.today - 1.day))
+
 puts "Done! #{User.count} users created."
 puts "Done! #{Disease.count} diseases created."
 puts "Done! #{Symptom.count} symptoms created."
+puts "Done! #{SymptomCheck.count} symptom checks created."
