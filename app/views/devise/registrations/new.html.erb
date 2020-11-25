@@ -1,7 +1,7 @@
 <div class="container sign-up-form mt-3">
   <%= link_to "x Cancel registeration", root_path %>
 
-  <h2 class="mt-3">Enter your personal details</h2>
+  <h3 class="mt-3">Enter your personal details</h3>
 
   <p class="mt-3">We just need some basic information about to get set-up</p>
 
@@ -33,11 +33,13 @@
       <%= f.input :photo,
                   as: :file %>
     </div>
-
+    <div class="center">
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class:"btn"%>
+      <br>
+      <%= f.button :submit, "Sign up", class:"btn btn-ghost"%>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <br>
+  <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-ghost" %><br />
+</div>
 </div>

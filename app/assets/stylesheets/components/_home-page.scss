@@ -1,8 +1,16 @@
+.center {
+  text-align: center;
+}
+
+
 .headings {
   text-align: center;
-
-
 }
+
+.headers {
+  text-align: center
+}
+
 
 body {
   background-color: white;
@@ -31,15 +39,18 @@ body {
 
 
 .btn-ghost {
-  color: #4A4A4A;
+  color: white;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+  // opacity: 0.6;
   transition: opacity 0.3s ease;
   width: 100%;
   text-align: center;
+  background-color: rgb(5, 80, 251);
+  font: white;
+  box-shadow: 1px 1px 1px 1px;
 }
 
 .btn-ghost:hover {
