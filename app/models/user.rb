@@ -15,7 +15,4 @@ class User < ApplicationRecord
   has_many :diseases
   has_many :symptoms, through: :diseases
   has_many :symptomchecks
-
-  OPTIONS = []
 end
-
