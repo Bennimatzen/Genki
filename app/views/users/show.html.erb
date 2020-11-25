@@ -39,6 +39,7 @@
       <% @sliced << [check.created_at.to_date, check.rating] %>
     <% end %>
     <div class="slider-card-graph">
+      <h5>History</h5>
       <%= line_chart @sliced %>
     </div>
 
