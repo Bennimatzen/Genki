@@ -1,6 +1,6 @@
 <h2>Hi <%= @user.first_name %>!</h2>
 
-<%= link_to "Your symptoms", disease_symptoms_path(@user.diseases[0]) %>
+<%= link_to "Your symptoms", disease_symptoms_path(@user.diseases) %>
 
 <h3>Latest checks:</h3>
 <ul>
