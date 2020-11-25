@@ -4,8 +4,30 @@
   <i class="fas fa-lungs"></i>
 
   <%= simple_form_for @symptom_check do |f| %>
-  <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 10 }, wrapper_html: { id: 'rating' }, required: false %>
-  <%= f.input :description %>
+  <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 5, id: 'rating-slider' }, required: false %>
+  <p id='slider-text'></p>
+  <%= f.input :description, label: 'Any other comments?' %>
   <%= f.button :submit, value: 'Submit', class: 'btn-ghost' %>
   <% end %>
 </div>
+
+<script>
+
+const rating = {
+  1: 'Much better than usual',
+  2: 'Better than usual',
+  3: 'Same as usual',
+  4: 'Worse than usual',
+  5: 'Much worse than usual'
+}
+
+  let ratingInput = document.getElementById('rating-slider')
+
+  ratingInput.addEventListener('change', () => {
+    let sliderText = document.getElementById('slider-text')
+    severity = ratingInput.value
+    sliderText.innerHTML = rating[severity]
+  })
+
+</script>
+
