@@ -10,8 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @symptom_checks = SymptomCheck.all
+    @symptom_check = SymptomCheck.new
   end
 
   private

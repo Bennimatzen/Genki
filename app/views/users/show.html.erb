@@ -17,16 +17,29 @@
 
 <h2><%= greeting %>, <%= @user.first_name %></h2>
 
-<%= link_to "Your symptoms", disease_symptoms_path(@user.diseases) %>
 
-<h3>Latest checks:</h3>
-<ul>
-  <% @symptom_checks.each do |check| %>
-  <li>
-  <%= check.symptom.name %>: <%= check.rating %>/10 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
-  </li>
-  <% end %>
-</ul>
+<div class="form-container">
+  <h2>Hi <%= @user.first_name %>!</h2>
 
+  <%= link_to "Your symptoms", disease_symptoms_path(@user.diseases) %>
 
+  <div class="slider-card">
+    <%= simple_form_for @symptom_check do |f| %>
+      <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 5, id: 'rating-slider' }, required: false %>
+      <p id='slider-text'>Same as usual</p>
+      <%= f.button :submit, value: 'Submit', class: 'btn-ghost-small' %>
+    <% end %>
+  </div>
+</div>
+
+  <h3>History:</h3>
+  <ul>
+    <% @symptom_checks.each do |check| %>
+    <li>
+    <%= check.symptom.name %>: <%= check.rating %>/5 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
 
