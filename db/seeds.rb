@@ -1,6 +1,7 @@
 
 puts "Cleaning database...."
 
+SymptomCheck.destroy_all
 Symptom.destroy_all
 Disease.destroy_all
 User.destroy_all

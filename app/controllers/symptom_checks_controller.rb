@@ -1,5 +1,4 @@
 class SymptomChecksController < ApplicationController
-
   def new
     @symptom_check = SymptomCheck.new
   end
@@ -17,10 +16,9 @@ class SymptomChecksController < ApplicationController
     end
   end
 
-private
+  private
 
   def symptom_check_params
     params.require(:symptom_check).permit(:rating, :description)
   end
 end
-
