@@ -26,11 +26,23 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :dob,
+                  required: true,
+                  label: "Date of Birth",
+                  placeholder: "dd/mm/yyyy",
+                  html5: true  %>
+      <%= f.input :gender,
+                  required: true,
+                  collection: ["Male", "Female"] %>
+      <%= f.input :nhs_number,
+                  required: true,
+                  label: "NHS number (10 digits)",
+                  placeholder: "For e.g. 485 777 3456" %>
       <%= f.input :doctor,
                   required: true,
-                  autofocus: true,
                   label: "Are you a doctor?"%>
       <%= f.input :photo,
+                  label: "Your profile picture",
                   as: :file %>
     </div>
 
