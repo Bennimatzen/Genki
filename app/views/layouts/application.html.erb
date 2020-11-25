@@ -12,7 +12,9 @@
   </head>
 
   <body>
+    <% if current_user %>
     <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
