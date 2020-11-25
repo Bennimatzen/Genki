@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/davegudge/chartkick
+  revision: 52a2728e6667902b8aac3315b73214b5828491eb
+  specs:
+    chartkick (2.2.5)
+
+GIT
   remote: https://github.com/glyph-fr/redactor-rails.git
   revision: 6f6655fd71199700f2e5d7bc1f7f3c19f37dde50
   specs:
@@ -109,6 +115,8 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.1)
+      activesupport (>= 5)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -266,10 +274,12 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  chartkick!
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
   font-awesome-sass
+  groupdate
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
