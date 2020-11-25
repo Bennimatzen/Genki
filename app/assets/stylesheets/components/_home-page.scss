@@ -1,3 +1,12 @@
+.color {
+  background-color: rgb(246, 155, 150);
+  background-image: asset-url(registerphoto1);
+  background-size: contain;
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+
 .center {
   text-align: center;
 }
@@ -12,11 +21,11 @@
 }
 
 
-body {
-  background-color: rgb(246, 155, 150);
-  // background-image: url(registerphoto.png);
-  // object-fit: cover;
-}
+// body {
+//   background-color: rgb(246, 155, 150);
+//   // background-image: url(registerphoto.png);
+//   // object-fit: cover;
+// }
 
 .img_home {
   // width:300px;
@@ -26,6 +35,7 @@ body {
   width: 100%;
   object-fit: cover;
   height: 400px;
+  // background-color: rgb(246, 155, 150);
 
  }
 
@@ -35,9 +45,19 @@ body {
 
 }
 
+.landingpage-details {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  text-align: center;
+
+}
+
 .discreption-text {
   text-align: center;
-  padding: 2px;
+  margin: 20px;
+  // padding: 2px;
+  // text-align: right;
 }
 
 .background-color {
