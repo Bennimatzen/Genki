@@ -13,14 +13,21 @@
 
 
 body {
-  background-color: white;
+  background-color: rgb(246, 155, 150);
+  // background-image: url(registerphoto.png);
+  // object-fit: cover;
 }
 
 .img_home {
-  width:250px;
-  padding-right: 48px;
+  // width:300px;
+  // padding-right: 85px;
+  // height: 500px;
+  // width: 150%;
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
 
-}
+ }
 
 .col-7 {
   text-align: center;
@@ -50,7 +57,7 @@ body {
   text-align: center;
   background-color: rgb(5, 80, 251);
   font: white;
-  box-shadow: 1px 1px 1px 1px;
+  // box-shadow: 1px 1px 1px 1px;
 }
 
 .btn-ghost:hover {
