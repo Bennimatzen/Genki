@@ -1,4 +1,21 @@
-<h2>Hi <%= @user.first_name %>!</h2>
+
+<% def greeting %>
+  <% current_time = Time.now.to_i %>
+  <% midnight = Time.now.beginning_of_day.to_i %>
+  <% noon = Time.now.middle_of_day.to_i %>
+  <% five_pm = Time.now.change(:hour => 17 ).to_i %>
+
+  <% case %>
+    <% when midnight.upto(noon).include?(current_time) %>
+      <% return "Good Morning" %>
+    <% when noon.upto(five_pm).include?(current_time) %>
+      <% return "Good Afternoon" %>
+    <% when five_pm.upto(midnight + 1.day).include?(current_time) %>
+      <% return "Good Evening" %>
+  <% end %>
+<% end %>
+
+<h2><%= greeting %>, <%= @user.first_name %></h2>
 
 <%= link_to "Your symptoms", disease_symptoms_path(@user.diseases) %>
 
@@ -10,4 +27,6 @@
   </li>
   <% end %>
 </ul>
+
+
 
