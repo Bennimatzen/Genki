@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
         <% end %>
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
+<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+ -->
   <% if current_user != nil %>
     <%= link_to user_path(current_user), class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
@@ -14,7 +14,7 @@
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
   <% end %>
-  
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>

@@ -8,8 +8,14 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :dob, presence: true
+  validates :nhs_number, presence: true
+  validates :gender, inclusion: { in: ["Male", "Female"] }
 
   has_many :diseases
   has_many :symptoms, through: :diseases
   has_many :symptomchecks
+
+  OPTIONS = []
 end
+
