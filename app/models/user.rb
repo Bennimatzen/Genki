@@ -18,4 +18,3 @@ class User < ApplicationRecord
 
   OPTIONS = []
 end
-
