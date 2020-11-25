@@ -1,18 +1,8 @@
-<% if user_signed_in? %>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://raw.githubusercontent.com/Bennimatzen/Genki/9e58ae142b0e68a1f3c0978df115ef449f039d4e/app/assets/images/logo_Vecteezy.svg" %>
-        <% end %>
+<% if false %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
-  <% if current_user != nil %>
-    <%= link_to profile_users_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-  <% else %>
-    <%= link_to "", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://raw.githubusercontent.com/Bennimatzen/Genki/9e58ae142b0e68a1f3c0978df115ef449f039d4e/app/assets/images/logo_Vecteezy.svg" %>
+    Genki Health
   <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -41,3 +31,32 @@
   </div>
 </div>
 <% end %>
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://raw.githubusercontent.com/Bennimatzen/Genki/9e58ae142b0e68a1f3c0978df115ef449f039d4e/app/assets/images/logo_Vecteezy.svg" %>
+      <span id="title">Genki Health</span>
+    <% end %>
+
+  <div class="navbar-expand-sm">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <span id="user_name">
+            <%= current_user.first_name %>
+          </span>
+          <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
