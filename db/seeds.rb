@@ -7,7 +7,7 @@ Disease.destroy_all
 User.destroy_all
 
 puts "Creating users..."
-User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes")
+User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes", dob: DateTime.new(2001,12,10), gender: "Female", nhs_number: 12345678)
 
 puts "Creating diseases..."
 Disease.create!(user: User.all.sample, name: "Cystic Fibrosis")
