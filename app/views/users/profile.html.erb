@@ -17,7 +17,7 @@
 
   <h2 class="center mt-4"><%= greeting %>, <%= @user.first_name %></h2>
 
-  <div class="container mt-4 border-bottom border-warning border-10 d-flex justify-content-start">
+  <div class="container mt-4 border-bottom border-primary border-10 d-flex justify-content-start">
     <button class="btn user-tab" data-target="symptoms">Symptoms
       <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
         <div class="notification1">
@@ -48,7 +48,7 @@
           <%= f.button :submit, value: 'Submit', class: 'btn-ghost-small' %>
         <% end %>
       <% else %>
-        <h4>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name %> today 👏</h4>
+        <h5>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name.downcase %> today 👏</h5>
       <% end %>
       </div>
 
@@ -58,7 +58,11 @@
         <% end %>
         <div class="dashboard-card" id="symptom-chart">
           <h5>History</h5>
-          <%= line_chart @sliced %>
+          <%= line_chart @sliced, ytitle: "Severity", height: "200px", colors: ["#0da4c8", "#0da4c8"], showLines: 'false',
+          library:
+          { scales:
+            { yAxes: [{ display: false }] }
+          } %>
         </div>
 
     <div class="user-ul" id="prescriptions">

@@ -19,12 +19,12 @@
 }
 
 .btn-ghost-small {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: $primaryblue;
+  border: 1px solid $primaryblue;
   padding: 4px 12px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
+  font-weight: regular;
+  opacity: 1;
   transition: opacity 0.3s ease;
   width: 40%;
   text-align: center;

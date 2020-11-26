@@ -15,17 +15,17 @@ const initUserTabs = () => {
         symptomsTab.classList.add("active")
         prescriptionsTab.classList.remove("active")
         appointmentsTab.classList.remove("active")
-        event.target.style.color="rgb(248, 171, 65)"
+        event.target.style.color="rgb(13, 164, 200)"
       } else if (ulTarget === "prescriptions") {
         prescriptionsTab.classList.add("active")
         symptomsTab.classList.remove("active")
         appointmentsTab.classList.remove("active")
-        event.target.style.color="rgb(248, 171, 65)"
+        event.target.style.color="rgb(13, 164, 200)"
       } else {
         appointmentsTab.classList.add("active")
         symptomsTab.classList.remove("active")
         prescriptionsTab.classList.remove("active")
-        event.target.style.color="rgb(248, 171, 65)"
+        event.target.style.color="rgb(13, 164, 200)"
       }
     })
   })
