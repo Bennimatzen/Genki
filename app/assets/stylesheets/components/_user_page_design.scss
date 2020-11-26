@@ -1,5 +1,6 @@
 .header-profile {
   width: 400px;
+  height: 75px;
 }
 
 .header-profile h1 {
@@ -28,6 +29,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
+  text-decoration: none;
 }
 
 .app-card-1 {
@@ -37,6 +39,11 @@
 .app-card-4 h4 {
   font-size: 14px;
   font-weight: bold;
+  color: black;
+}
+
+.app-card-1 h4 {
+  color: black;
 }
 
 .app-card-4 p {
@@ -54,4 +61,6 @@
   border-radius: 60px;
   box-shadow: 0px 0px 2px #888;
   padding: 0.5em 0.6em;
+  background-color: $primaryblue;
+  color: white;
 }

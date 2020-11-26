@@ -15,7 +15,9 @@
 <% end %>
 
 
-  <h2 class="center mt-4"><%= greeting %>, <%= @user.first_name %></h2>
+  <div class="container header-profile m-3">
+    <h1><%= greeting %>, <%= @user.first_name %></h1>
+  </div>
 
   <div class="container m-3 border-10 d-flex justify-content-start">
     <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms

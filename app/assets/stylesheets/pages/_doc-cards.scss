@@ -1,0 +1,40 @@
+.doc-card {
+  width: 400px;
+  border-radius: 12px !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
+  // height: 100% !important;
+  overflow: hidden !important;
+  // width: 100% !important;
+  display: flex;
+  z-index: 0 !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.doc-card a {
+  text-decoration: none;
+}
+
+.doc-card img {
+  width: 80px;
+}
+
+.NHS-register {
+  color: rgb(2,94,184);
+  text-decoration: none;
+}
+
+.doctor-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.doctor-specialty {
+  font-size: 12px;
+  color: black;
+}
+

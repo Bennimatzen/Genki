@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_121150) do
+ActiveRecord::Schema.define(version: 2020_11_26_223057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_121150) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.string "type"
+    t.string "appointment_type"
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean "record_share"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_121150) do
     t.bigint "doctor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "reason"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -96,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_121150) do
     t.string "first_name"
     t.string "last_name"
     t.date "dob"
-    t.integer "nhs_number"
+    t.string "nhs_number"
     t.string "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
