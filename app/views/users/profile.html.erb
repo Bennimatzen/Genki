@@ -56,20 +56,10 @@
         <% @symptom_checks.each do |check| %>
           <% @sliced << [check.created_at.to_date, check.rating] %>
         <% end %>
-        <div class="dashboard-card">
+        <div class="dashboard-card" id="symptom-chart">
           <h5>History</h5>
           <%= line_chart @sliced %>
         </div>
-
-   <p>History:</p>
-    <ul>
-      <% @symptom_checks.each do |check| %>
-      <li>
-      <%= check.symptom.name %>: <%= check.rating %>/5 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
-      </li>
-      <% end %>
-    </ul>
-    </div>
 
     <div class="user-ul" id="prescriptions">
       <p>Something</p>
