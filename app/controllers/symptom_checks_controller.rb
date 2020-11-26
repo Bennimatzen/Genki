@@ -10,7 +10,7 @@ class SymptomChecksController < ApplicationController
     @symptom_check.symptom = @symptom
     @symptom_check.user = @user
     if @symptom_check.save
-      redirect_to user_path(@user)
+      redirect_to profile_users_path
     else
       render :new
     end
