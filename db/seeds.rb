@@ -11,7 +11,7 @@ User.destroy_all
 
 puts "Creating users..."
 
-User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes", dob: DateTime.new(2001,12,10), gender: "Female", nhs_number: 12345678)
+ellie = User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes", dob: DateTime.new(2001,12,10), gender: "Female", nhs_number: 12345678)
 ellie.photo.attach(io: file, filename: 'ellie.jpeg', content_type: 'image/jpeg')
 
 puts "Creating diseases..."
