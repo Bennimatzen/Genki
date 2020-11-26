@@ -1,0 +1,9 @@
+<div class="container-sm">
+  <h3>Become a doctor</h3>
+  <p>Enter details to become a doctor</p>
+  <%= simple_form_for [ @user, @doctor ] do |f| %>
+    <%= f.input :specialty %>
+    <%= f.input :description %>
+    <%= f.submit "Submit", class: "btn btn-ghost" %>
+  <% end %>
+</div>

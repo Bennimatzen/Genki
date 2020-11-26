@@ -16,7 +16,11 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <% if current_user.doctors.any? %>
+              <%= link_to "Doctor profile", doctor_path(@doctor), class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "Become a doctor", new_user_doctor_path, method: :delete, class: "dropdown-item" %>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
