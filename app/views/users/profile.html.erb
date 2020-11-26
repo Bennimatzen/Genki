@@ -18,9 +18,23 @@
 <%= link_to "Your symptoms", disease_symptoms_path(@user.diseases) %>
 
 <div class="container mt-4 border-bottom border-warning border-10 d-flex justify-content-start">
-  <button class="btn user-tab" data-target="symptoms">Symptoms</button>
-  <button class="btn user-tab" data-target="prescriptions">Prescriptions</button>
-  <button class="btn user-tab" data-target="appointments">Appointments</button>
+  <button class="btn user-tab" data-target="symptoms">Symptoms
+    <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
+      <div class="notification1">
+        <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
+      </div>
+    <% end %>
+  </button>
+  <button class="btn user-tab" data-target="prescriptions">Prescriptions
+    <div class="notification2">
+      3
+    </div>
+  </button>
+  <button class="btn user-tab" data-target="appointments">Appointments
+    <div class="notification3">
+      1
+    </div>
+  </button>
 </div>
 
 <div class="container" style="margin-top: 24px;">
@@ -36,7 +50,7 @@
       <h4>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name %> today 👏</h4>
     <% end %>
   </div>
-    
+
   <p>History:</p>
   <ul>
     <% @symptom_checks.each do |check| %>
