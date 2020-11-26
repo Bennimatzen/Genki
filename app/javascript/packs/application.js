@@ -4,6 +4,9 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
+
+
+
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
@@ -22,9 +25,13 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+require("chartkick")
+require("chart.js")
+
 // External imports
 import "bootstrap";
 import { initUserTabs } from '../pages/user/init_user_tabs';
+import { initSlider } from '../pages/user/init_slider';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initUserTabs();
+  initSlider();
 });
