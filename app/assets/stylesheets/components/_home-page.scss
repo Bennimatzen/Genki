@@ -76,14 +76,29 @@
   width: 100%;
   text-align: center;
   background-color: rgb(5, 80, 251);
-  // font: white;
+  font: white;
+  // background-color: $buttonblue;
+  // padding: 8px 24px;
+  // width: 200px;
+  // border-radius: 50px;
+  // font-weight: bold;
+  // opacity: 1;
+  // transition: opacity 0.3s ease;
+  // color: white;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   // box-shadow: 1px 1px 1px 1px;
 }
 
-.btn-ghost:hover {
-  opacity: 1;
-  background-color: white;
-}
+// .btn-ghost:hover {
+//   opacity: 0.6;
+// }
+
+
+// .btn-ghost:hover {
+//   opacity: 1;
+  // background-color: white;
+// }
 
 .btn-flat {
   color: white;
