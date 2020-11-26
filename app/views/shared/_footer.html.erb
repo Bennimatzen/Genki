@@ -1,19 +1,19 @@
 <div class="footer">
   <% if current_user != nil %>
     <div class="footer-links">
-      <%= link_to user_path(current_user) do  %>
+      <%= link_to profile_users_path do  %>
         <i class="fas fa-home"></i>
       <% end %>
-      <%= link_to user_path(current_user) do  %>
+      <%= link_to profile_users_path do  %>
         <i class="far fa-calendar-alt"></i>
       <% end %>
       <%= link_to new_symptom_check_path do  %>
         <i class="fas fa-plus"></i>
       <% end %>
-      <%= link_to user_path(current_user) do  %>
+      <%= link_to profile_users_path do  %>
         <i class="fas fa-pills"></i>
       <% end %>
-      <%= link_to user_path(current_user) do  %>
+      <%= link_to profile_users_path do  %>
         <i class="fas fa-stethoscope"></i>
       <% end %>
     </div>

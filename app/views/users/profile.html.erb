@@ -35,8 +35,8 @@
     <% else %>
       <h4>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name %> today 👏</h4>
     <% end %>
-
   </div>
+    
   <p>History:</p>
   <ul>
     <% @symptom_checks.each do |check| %>
