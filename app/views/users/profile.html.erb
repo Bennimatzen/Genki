@@ -17,21 +17,21 @@
 
   <h2 class="center mt-4"><%= greeting %>, <%= @user.first_name %></h2>
 
-  <div class="container mt-4 border-bottom border-warning border-10 d-flex justify-content-start">
-    <button class="btn user-tab" data-target="symptoms">Symptoms
+  <div class="container m-3 border-10 d-flex justify-content-start">
+    <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms
       <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
-        <div class="notification1">
+        <div class="notification">
           <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
         </div>
       <% end %>
     </button>
-    <button class="btn user-tab" data-target="prescriptions">Prescriptions
-      <div class="notification2">
+    <button class="btn user-tab tab m-3 p-2" data-target="prescriptions">Prescriptions
+      <div class="notification">
         3
       </div>
     </button>
-    <button class="btn user-tab" data-target="appointments">Appointments
-      <div class="notification3">
+    <button class="btn user-tab tab m-3 p-2" data-target="appointments">Appointments
+      <div class="notification">
         1
       </div>
     </button>

@@ -1,0 +1,38 @@
+<div class="container header-profile m-3">
+  <h1>Manage your appointments</h1>
+</div>
+
+<div class="container m-3 border-10 d-flex justify-content-start">
+  <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms
+    <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
+      <span class="notification">
+        <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
+      </span>
+    <% end %>
+  </button>
+  <button class="btn user-tab tab m-3 p-2" data-target="prescriptions">Prescriptions
+    <div class="notification">
+      3
+    </div>
+  </button>
+  <button class="btn user-tab tab m-3 p-2" data-target="appointments">Appointments
+    <div class="notification">
+      1
+    </div>
+  </button>
+</div>
+
+<div class="container app-card m-3">
+  <div class="app-card-1">
+    <i class="far fa-calendar-alt"></i>
+  </div>
+  <div class="app-card-1 app-card-4 mt-3">
+    <div>
+      <h4>Book a new appointment</h4>
+      <p>Book a time that suits you</p>
+    </div>
+  </div>
+  <div class="app-card-1">
+    <h3>></h3>
+  </div>
+</div>

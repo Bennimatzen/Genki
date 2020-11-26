@@ -1,52 +1,18 @@
 class AppointmentsController < ApplicationController
+  before_action :set_user
+
+  def index
+    @appointments = Appointment.all
+  end
+
+  private
+
+  def set_user
+    @user = current_user
+  end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   # before_action :set_doctor, except: [:destroy, :show, :edit, :update]
-
-  # def show
-  #   @appointment = Appointment.find(params[:id])
-  # end
 
   # def new
   #   @appointment = Appointment.new

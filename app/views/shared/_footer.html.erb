@@ -4,7 +4,7 @@
       <%= link_to profile_users_path do  %>
         <i class="fas fa-home"></i>
       <% end %>
-      <%= link_to profile_users_path do  %>
+      <%= link_to user_appointments_path(current_user) do  %>
         <i class="far fa-calendar-alt"></i>
       <% end %>
       <%= link_to new_symptom_check_path do  %>
