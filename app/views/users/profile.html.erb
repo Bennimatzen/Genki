@@ -26,7 +26,7 @@
 
 <div class="container" style="margin-top: 24px;">
   <div class="user-ul active" id="symptoms">
-    <div class="slider-card">
+    <div class="dashboard-card">
 
 
     <% if SymptomCheck.all.first.created_at != Date.today # this is not working properly %>
@@ -37,18 +37,18 @@
       <% end %>
     </div>
 
-    <% @sliced = [] %>
-    <% @symptom_checks.each do |check| %>
-      <% @sliced << [check.created_at.to_date, check.rating] %>
+      <% @sliced = [] %>
+      <% @symptom_checks.each do |check| %>
+        <% @sliced << [check.created_at.to_date, check.rating] %>
+      <% end %>
+      <div class="dashboard-card">
+        <h5>History</h5>
+        <%= line_chart @sliced %>
+      </div>
+
     <% end %>
-    <div class="slider-card-graph">
-      <h5>History</h5>
-      <%= line_chart @sliced %>
+
     </div>
-
-    <% end %>
-
-  </div>
 
   </div>
 
