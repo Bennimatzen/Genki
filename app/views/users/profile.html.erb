@@ -27,6 +27,9 @@
 <div class="container" style="margin-top: 24px;">
   <div class="user-ul active" id="symptoms">
     <div class="slider-card">
+
+
+    <% if SymptomCheck.all.first.created_at != Date.today # this is not working properly %>
       <%= simple_form_for @symptom_check do |f| %>
         <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 5, id: 'rating-slider' }, required: false %>
         <p id='slider-text'>Same as usual</p>
@@ -43,14 +46,10 @@
       <%= line_chart @sliced %>
     </div>
 
- <!--  <p>History:</p>
-  <ul>
-    <% @symptom_checks.each do |check| %>
-    <li>
-    <%= check.symptom.name %>: <%= check.rating %>/5 on <%= check.created_at.mday %>-<%= check.created_at.mon %>-<%= check.created_at.year %>
-    </li>
     <% end %>
-  </ul> -->
+
+  </div>
+
   </div>
 
   <div class="user-ul" id="prescriptions">
