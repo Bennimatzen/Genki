@@ -1,19 +1,37 @@
 require 'open-uri'
 
 file = URI.open('https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80')
+arthur_img = URI.open('https://kitt.lewagon.com/placeholder/users/arthur-littm')
+lucien_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucien-george')
+lucy_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucyksilver')
 
 puts "Cleaning database...."
 
+Doctor.destroy_all
 SymptomCheck.destroy_all
 Symptom.destroy_all
 Disease.destroy_all
 User.destroy_all
+
 
 puts "Creating users..."
 
 ellie = User.create!(email: "ellie@lewagon.com" , password: "secret", first_name: "Ellie", last_name: "Holmes", dob: DateTime.new(2001,12,10), gender: "Female", nhs_number: 12345678)
 ellie.photo.attach(io: file, filename: 'ellie.jpeg', content_type: 'image/jpeg')
 
+arthur = User.create!(email: "arthur@lewagon.com" , password: "secret", first_name: "Arthur", last_name: "Littman", dob: DateTime.new(1992,12,10), gender: "Male", nhs_number: 12345678)
+arthur.photo.attach(io: arthur_img, filename: 'arthur.jpeg', content_type: 'image/jpeg')
+
+lucien = User.create!(email: "lucien@lewagon.com" , password: "secret", first_name: "Lucien", last_name: "George", dob: DateTime.new(1992,12,10), gender: "Male", nhs_number: 12345678)
+lucien.photo.attach(io: lucien_img, filename: 'lucien.jpeg', content_type: 'image/jpeg')
+
+lucy = User.create!(email: "lucy@lewagon.com" , password: "secret", first_name: "Lucy", last_name: "Silver", dob: DateTime.new(1994,12,10), gender: "Female", nhs_number: 12345678)
+lucy.photo.attach(io: lucy_img, filename: 'lucy.jpeg', content_type: 'image/jpeg')
+
+puts "Creating doctors"
+Doctor.create!(specialty: "Respiratory", description: "I am here to help you with anything related to your lung system.", user_id: arthur.id)
+Doctor.create!(specialty: "Physio", description: "I am here to help you with any physiological rehabilitation.", user_id: lucien.id)
+Doctor.create!(specialty: "GP", description: "I am here to help you with any minor illnesses.", user_id: lucy.id)
 
 puts "Creating diseases..."
 disease = Disease.create!(user: User.all.sample, name: "Cystic Fibrosis")
