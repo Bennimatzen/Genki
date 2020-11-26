@@ -10,9 +10,13 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = current_user
-    @symptom_checks = SymptomCheck.all
-    @symptom_check = SymptomCheck.new
+    if current_user.doctors.any?
+      redirect_to doctor_path(current_user.doctors.first)
+    else
+      @user = current_user
+      @symptom_checks = SymptomCheck.all
+      @symptom_check = SymptomCheck.new
+    end
   end
 
   private
