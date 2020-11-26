@@ -15,5 +15,5 @@ class User < ApplicationRecord
   has_many :diseases
   has_many :symptoms, through: :diseases
   has_many :symptomchecks
-  has_many :doctors # this is to make sure that doctors can have many patients (users)
+  has_many :doctors, dependent: :destroy
 end
