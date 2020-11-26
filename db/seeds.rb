@@ -34,7 +34,7 @@ Doctor.create!(specialty: "Physio", description: "I am here to help you with any
 Doctor.create!(specialty: "GP", description: "I am here to help you with any minor illnesses.", user_id: lucy.id)
 
 puts "Creating diseases..."
-disease = Disease.create!(user: User.all.sample, name: "Cystic Fibrosis")
+disease = Disease.create!(user: ellie, name: "Cystic Fibrosis")
 
 puts "Creating symptoms..."
 symptom = Symptom.create!(disease: Disease.all.sample, name: "Cough")
