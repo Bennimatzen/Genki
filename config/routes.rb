@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :symptom_checks, only: [:new, :create]
-  resources :doctors, only: [:show]
+  resources :appointments, only: [:destroy]
+  resources :doctors, only: [:show, :index]  do
+    resources :appointments, only: [:new, :create]
+  end
   resources :diseases, only: [:new, :create] do
     resources :symptoms, only: [:index, :new, :create]
   end
