@@ -56,17 +56,20 @@
       <% end %>
       </div>
 
-        <% @sliced = [] %>
-        <% @symptom_checks.each do |check| %>
-          <% @sliced << [check.created_at.to_date, check.rating] %>
-        <% end %>
+
         <div class="dashboard-card" id="symptom-chart">
           <h5>History</h5>
+ 
           <%= line_chart @sliced, ytitle: "Severity", height: "200px", colors: ["#0da4c8", "#0da4c8"], showLines: 'false',
           library:
           { scales:
             { yAxes: [{ display: false }] }
           } %>
+
+          
+          
+          
+
         </div>
 
     <div class="user-ul" id="prescriptions">
@@ -80,3 +83,5 @@
   </div>
 
 
+
+<%#= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>

@@ -25,8 +25,8 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
-require("chartkick")
-require("chart.js")
+// require("chartkick")
+// require("chart.js")
 
 // External imports
 import "bootstrap";
