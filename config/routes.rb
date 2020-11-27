@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+ # resources :users do
+  #   resources :prescriptions, only: [:create]
+  # end
+
   resources :symptom_checks, only: [:new, :create]
   resources :appointments, only: [:destroy]
   resources :doctors, only: [:show, :index]  do

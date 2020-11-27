@@ -3,7 +3,7 @@
 </div>
 
 <div class="container m-3 border-10 d-flex justify-content-start">
-  <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms
+  <button class="btn user-tab tab m-3 p-2" data-target="symptoms">Symptoms
     <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
       <span class="notification">
         <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
@@ -43,10 +43,10 @@
   <h5>Upcoming appointments</h5>
 </div>
 
-<div class="container m-3">
+<div class="container m-3 appointment-card-mn-ct">
   <% @appointments.each do |appointment| %>
-    <div class="container appointment-card mt-3 mb-5 mr-3 pl-0 pr-0 pb-3 pt-3">
-      <div class="container border-bottom m-3 appointment-card-1">
+    <div class="container appointment-card mb-4 pl-0 pr-0 pb-3 pt-3">
+      <div class="container border-bottom mt-0 ml-3 mb-3 mr-3 pt-0 appointment-card-1">
         <%= image_tag current_user.photo, class: "avatar dropdown-toggle" %>
         <span maxlength="25"> <%= appointment.reason %> </span>
       </div>
@@ -86,10 +86,15 @@
             </div>
           </div>
         </div>
-        <div class="container appointment-card-4">
-          <h6>Full records shared</h6>
-          <p>Edit sharing</p>
-        </div>
-
+      <div class="container appointment-card-4">
+        <h6>Full records shared</h6>
+        <p>Edit sharing</p>
+      </div>
+    </div>
   <% end %>
 </div>
+<br>
+<br>
+<br>
+
+
