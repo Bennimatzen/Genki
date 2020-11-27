@@ -7,6 +7,7 @@ lucy_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucyksilver')
 
 puts "Cleaning database...."
 
+Appointment.destroy_all
 Doctor.destroy_all
 SymptomCheck.destroy_all
 Symptom.destroy_all
