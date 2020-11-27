@@ -47,7 +47,7 @@
   <% @appointments.each do |appointment| %>
     <div class="container appointment-card mb-4 pl-0 pr-0 pb-3 pt-3">
       <div class="container border-bottom mt-0 ml-3 mb-3 mr-3 pt-0 appointment-card-1">
-        <%= image_tag current_user.photo, class: "avatar dropdown-toggle" %>
+        <%= image_tag "current_user.photo", class: "avatar dropdown-toggle" %>
         <span maxlength="25"> <%= appointment.reason %> </span>
       </div>
       <div class="container appointment-card-2 mt-2 mb-2 border-bottom">

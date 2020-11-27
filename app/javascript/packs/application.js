@@ -25,8 +25,8 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
-// require("chartkick")
-// require("chart.js")
+require("chartkick")
+require("chart.js")
 
 // External imports
 import "bootstrap";
@@ -39,6 +39,6 @@ import { initSlider } from '../pages/user/init_slider';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initUserTabs();
+  // initUserTabs();
   initSlider();
 });
