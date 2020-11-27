@@ -10,12 +10,16 @@ const initSlider = () => {
   }
 
     let ratingInput = document.getElementById('rating-slider')
-
-    ratingInput.addEventListener('change', () => {
+    if (ratingInput) {
+      ratingInput.addEventListener('change', () => {
       let sliderText = document.getElementById('slider-text')
       let severity = ratingInput.value
       sliderText.innerHTML = rating[severity]
     })
+
+    }
+
+
 }
 
 export { initSlider };
