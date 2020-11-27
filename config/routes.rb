@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'users#profile'
   resources :users, only: [:edit, :update] do
+    resources :appointments, only: [:index]
     resources :doctors, only: [:new, :create]
     collection do
       get "profile", to:  "users#profile", as: :profile

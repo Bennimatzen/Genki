@@ -1,0 +1,95 @@
+<div class="container header-profile m-3">
+  <h1>Manage your appointments</h1>
+</div>
+
+<div class="container m-3 border-10 d-flex justify-content-start">
+  <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms
+    <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
+      <span class="notification">
+        <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
+      </span>
+    <% end %>
+  </button>
+  <button class="btn user-tab tab m-3 p-2" data-target="prescriptions">Prescriptions
+    <div class="notification">
+      3
+    </div>
+  </button>
+  <button class="btn user-tab tab m-3 p-2" data-target="appointments">Appointments
+    <div class="notification">
+      1
+    </div>
+  </button>
+</div>
+
+<%= link_to doctors_path  do %>
+  <div class="container app-card m-3">
+    <div class="app-card-1">
+      <i class="far fa-calendar-alt"></i>
+    </div>
+    <div class="app-card-1 app-card-4 mt-3">
+      <div>
+        <h4>Book a new appointment</h4>
+        <p>Book a time that suits you</p>
+      </div>
+    </div>
+    <div class="app-card-1">
+      <h4>></h4>
+    </div>
+  </div>
+<% end %>
+
+<div class="container m-4">
+  <h5>Upcoming appointments</h5>
+</div>
+
+<div class="container m-3">
+  <% @appointments.each do |appointment| %>
+    <div class="container appointment-card mt-3 mb-5 mr-3 pl-0 pr-0 pb-3 pt-3">
+      <div class="container border-bottom m-3 appointment-card-1">
+        <%= image_tag current_user.photo, class: "avatar dropdown-toggle" %>
+        <span maxlength="25"> <%= appointment.reason %> </span>
+      </div>
+      <div class="container appointment-card-2 mt-2 mb-2 border-bottom">
+        <div>
+          <p class="NHS-register"><b><i>NHS</i></b> registered doctor</p>
+          <p class="doctor-name">Dr. <%= appointment.doctor.user.first_name %> <%= appointment.doctor.user.last_name %> M.D </p>
+          <p class="doctor-specialty"><%= appointment.reason %></p>
+        </div>
+        <div>
+          <%= image_tag appointment.doctor.user.photo, class: "avatar dropdown-toggle" %>
+        </div>
+      </div>
+        <div class="container appointment-card-3 border-bottom">
+          <div class="container appointment-card-dt">
+            <div>
+              <h6>Date</h6>
+            </div>
+            <div>
+              <%= appointment.start_date.strftime("%b %d, %Y") %>
+            </div>
+          </div>
+          <div class="container appointment-card-dt">
+            <div>
+              <h6>Type</h6>
+            </div>
+            <div>
+              <%= appointment.appointment_type %>
+            </div>
+          </div>
+          <div class="container appointment-card-dt">
+            <div>
+              <h6>Time</h6>
+            </div>
+            <div>
+              <%= appointment.start_date.strftime("%l %M %p") %>
+            </div>
+          </div>
+        </div>
+        <div class="container appointment-card-4">
+          <h6>Full records shared</h6>
+          <p>Edit sharing</p>
+        </div>
+
+  <% end %>
+</div>

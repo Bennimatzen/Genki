@@ -1,0 +1,20 @@
+<div class="container header-profile m-3">
+  <h1>Pick a date and slot with Dr. <%= @doctor.user.first_name %></h1>
+</div>
+
+<div class="container header-profile mt-5 mb-3 mr-3 ml-3">
+  <%= simple_form_for [ @doctor, @appointment ] do |f| %>
+    <%= f.input :appointment_type,
+                required: true,
+                collection: ["In-person", "Remote consultation"] %>
+    <%= f.input :reason,
+                required: true %>
+    <%= f.input :start_date,
+                required: true,
+                html5: true %>
+    <%= f.input :end_date,
+                required: true,
+                html5: true %>
+    <%= f.submit "Submit", class: "btn btn-ghost" %>
+  <% end %>
+</div>
