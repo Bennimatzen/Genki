@@ -1,21 +1,17 @@
 .header-profile {
   width: 90%;
   height: 75px;
-
+  margin-left: 16px !important;
 }
 
 .header-profile h1 {
   color: $buttonblue;
   font-weight: bold;
-}
-
-.header-profile h2 {
-  color: $buttonblue;
-  font-weight: bold;
+  font-size: 32px;
 }
 
 .tab {
-  font-size: 14px;
+  font-size: 12px;
   border-bottom: 2px solid $primaryorange;
   padding-bottom: 0;
   position: relative;
