@@ -16,11 +16,10 @@
 
 
   <div class="container header-profile">
-    <h2><%= greeting %>, <%= @user.first_name %></h2>
+    <h1><%= greeting %>, <%= @user.first_name %></h1>
   </div>
 
-
-  <div class="container border-10 d-flex justify-content-start">
+  <div class="container border-10 d-flex justify-content-start m-3">
     <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms
 
       <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
