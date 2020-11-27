@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
-  root to: 'pages#home'
+  root to: 'users#profile'
   resources :users, only: [:edit, :update] do
     resources :appointments, only: [:index]
     resources :doctors, only: [:new, :create]
@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   resources :doctors, only: [:show, :index]  do
     resources :appointments, only: [:new, :create]
   end
+
+  resources :appointments, only: [:show] do
+    resources :appointment_summaries, only: [:new, :create, :show]
+  end
+
   resources :diseases, only: [:new, :create] do
     resources :symptoms, only: [:index, :new, :create]
   end
