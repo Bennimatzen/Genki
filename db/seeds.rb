@@ -48,6 +48,9 @@ SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, creat
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-19 19:08:00")
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-18 19:08:00")
 
+puts "Creating appointments for Ellie..."
+Appointment.create!(type: "In-person", )
+
 # puts "Creating checks..."
 # SymptomCheck.create!(user: User.all.sample, symptom: Symptom.all.sample, rating: 5, description: "Feeling regular", created_at: (Date.today - 1.day))
 

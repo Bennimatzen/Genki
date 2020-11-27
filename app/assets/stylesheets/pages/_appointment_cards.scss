@@ -1,10 +1,8 @@
 .appointment-card {
-  width: 400px;
+  width: 475px;
   border-radius: 12px !important;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
-  // height: 100% !important;
   overflow: hidden !important;
-  // width: 100% !important;
   display: flex;
   z-index: 0 !important;
   flex-direction: column;
@@ -29,7 +27,6 @@
 .appointment-card-1 img {
   width: 32px;
   margin: 16px;
-  margin-top: 8px;
 }
 
 .appointment-card-1 {
