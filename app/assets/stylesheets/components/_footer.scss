@@ -7,7 +7,7 @@
   padding: 0px 8px;
   color: rgba(0,0,0,0.3);
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .footer-links {
@@ -30,6 +30,6 @@
 
 .page-container {
   display: grid;
-  min-height: 100vh;
+
   grid-template-rows: auto 1fr auto;
 }
