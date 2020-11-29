@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
- # resources :users do
-  #   resources :prescriptions, only: [:create]
-  # end
+ resources :users do
+    resources :prescriptions, only: [:index, :create]
+  end #this may need adjusting
 
   resources :symptom_checks, only: [:new, :create]
   resources :appointments, only: [:destroy]
