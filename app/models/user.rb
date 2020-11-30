@@ -16,4 +16,7 @@ class User < ApplicationRecord
   has_many :symptoms, through: :diseases
   has_many :symptomchecks
   has_many :doctors, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  has_many :chat_messages, through: :chats
 end

@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   resources :diseases, only: [:new, :create] do
     resources :symptoms, only: [:index, :new, :create]
   end
+
+  resources :messages, only: [:new, :create]
 end
