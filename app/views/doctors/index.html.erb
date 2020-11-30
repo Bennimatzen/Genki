@@ -11,8 +11,8 @@
     <%= link_to new_doctor_appointment_path(doctor) do %>
       <div class="container doc-card mb-5">
         <div>
-          <p class="NHS-register"><b><i>NHS</i></b> registered doctor</p>
-          <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %> M.D </p>
+          <p class="NHS-register"><b><i>NHS</i></b> doctor</p>
+          <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
           <p class="doctor-specialty"><%= doctor.specialty %></p>
         </div>
         <div>

@@ -1,11 +1,13 @@
 .header-profile {
-  width: 475px;
+  width: 90%;
   height: 75px;
+  margin-left: 16px !important;
 }
 
 .header-profile h1 {
   color: $buttonblue;
   font-weight: bold;
+  font-size: 32px;
 }
 
 .tab {
@@ -17,7 +19,7 @@
 }
 
 .app-card {
-  width: 475px;
+  width: 90%;
   border-radius: 12px !important;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
   // height: 100% !important;

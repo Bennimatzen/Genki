@@ -15,12 +15,11 @@
 <% end %>
 
 
-  <div class="container header-profile m-3">
+  <div class="container header-profile">
     <h1><%= greeting %>, <%= @user.first_name %></h1>
   </div>
 
-
-  <div class="container m-3 border-10 d-flex justify-content-start">
+  <div class="container border-10 d-flex justify-content-start m-3">
     <button class="btn user-tab tab mt-3 mb-3 ml-0 mr-3 p-2" data-target="symptoms">Symptoms
 
       <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
@@ -30,13 +29,10 @@
       <% end %>
     </button>
     <button class="btn user-tab tab m-3 p-2" data-target="prescriptions">Prescriptions
-      <div class="notification">
-        3
-      </div>
     </button>
     <button class="btn user-tab tab m-3 p-2" data-target="appointments">Appointments
       <div class="notification">
-        1
+        2
       </div>
     </button>
   </div>
@@ -66,10 +62,6 @@
           { scales:
             { yAxes: [{ display: false }] }
           } %>
-
-
-
-
 
         </div>
 

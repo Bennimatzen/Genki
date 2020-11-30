@@ -6,7 +6,7 @@
   <%= simple_form_for [ @doctor, @appointment ] do |f| %>
     <%= f.input :appointment_type,
                 required: true,
-                collection: ["In-person", "Remote consultation"] %>
+                collection: ["In-person", "Remote"] %>
     <%= f.input :reason,
                 required: true %>
     <%= f.input :start_date,
