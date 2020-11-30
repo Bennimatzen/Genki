@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def show
+    @user = current_user
+    @doctors = Doctor.all
+  end
+
   def edit
     @user = current_user
   end
@@ -18,8 +23,8 @@ class UsersController < ApplicationController
       @symptom_checks = SymptomCheck.all
       @symptom_check = SymptomCheck.new
       @symptom_checks.each do |check|
-           @sliced << [check.created_at.to_date, check.rating]
-         end
+        @sliced << [check.created_at.to_date, check.rating]
+      end
     end
   end
 

@@ -2,7 +2,7 @@ class AppointmentSummariesController < ApplicationController
 
 def new
   @appointment = Appointment.find(params[:appointment_id])
-  @appointment_summary = AppointmentSummary.new(appointment_summary_params)
+  @appointment_summary = AppointmentSummary.new
 end
 
 def create

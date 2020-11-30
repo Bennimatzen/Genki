@@ -7,6 +7,8 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @users = User.all
+    @appointments = Appointment.all
     @user = current_user
   end
 

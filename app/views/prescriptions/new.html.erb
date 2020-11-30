@@ -1,0 +1,12 @@
+<div class="form-container">
+
+  <h4>New Prescription</h4>
+
+  <%= simple_form_for [@user, @prescription] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :dose %>
+  <%= f.input :frequency %>
+  <%= f.input :duration %>
+  <%= f.button :submit, value: 'Submit', class: 'btn-ghost-small' %>
+  <% end %>
+</div>

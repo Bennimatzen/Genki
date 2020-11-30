@@ -1,5 +1,31 @@
 <div class="container-sm">
-  <h3>Welcome <%= @user.first_name %> </h3>
-  <p>I am a <%= @doctor.specialty %> </p>
-  <p> <%= @doctor.description %> </p>
+  <div class="doctor-card">
+    <%= image_tag @doctor.user.photo, class: "avatar dropdown-toggle" %>
+    <h4>Hi! I am Dr. <%= @doctor.user.first_name.capitalize %> <%= @doctor.user.last_name.capitalize %></h4>
+    <p>I am a <%= @doctor.specialty %> - <%= @doctor.description %> </p>
+  </div>
+
+  <h4>Your patients</h4>
+  <% @users.each do |user| %>
+    <% if user.doctors.none? %>
+      <%= link_to new_user_prescription_path(user) do %>
+        <div class="dashboard-card">
+          <%= user.first_name %> <%= user.last_name %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <h4>Your appointments</h4>
+    <% @appointments.each do |appointment| %>
+      <% if appointment.doctor.user == current_user %>
+        <%= link_to new_appointment_appointment_summary_path(appointment) do %>
+          <div class="dashboard-card">
+            <%= appointment.user.first_name %>
+            <%= appointment.user.last_name %><br>
+            <%= appointment.start_date.strftime("%b %d, %Y") %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 </div>
