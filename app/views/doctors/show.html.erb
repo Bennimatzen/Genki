@@ -13,4 +13,18 @@
       <% end %>
     <% end %>
   <% end %>
+
+  <h4>Your appointments</h4>
+    <% @appointments.each do |appointment| %>
+      <% if appointment.doctor.user == current_user %>
+        <%= link_to new_appointment_appointment_summary_path(appointment) do %>
+          <div class="dashboard-card">
+            <%= appointment.user.first_name %>
+            <%= appointment.user.last_name %><br>
+            <%= appointment.start_date.strftime("%b %d, %Y") %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 </div>
+

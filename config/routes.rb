@@ -20,8 +20,10 @@ Rails.application.routes.draw do
   end
 
   resources :appointments, only: [:show] do
-    resources :appointment_summaries, only: [:new, :create, :show]
+    resources :appointment_summaries, only: [:new, :create]
   end
+
+  resources :appointment_summaries, only: [:show]
 
   resources :diseases, only: [:new, :create] do
     resources :symptoms, only: [:index, :new, :create]
