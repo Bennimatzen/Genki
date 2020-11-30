@@ -7,14 +7,16 @@ lucy_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucyksilver')
 
 puts "Cleaning database...."
 
+Message.destroy_all
+Chat.destroy_all
 AppointmentSummary.destroy_all
 Appointment.destroy_all
 Prescription.destroy_all
 Doctor.destroy_all
-User.destroy_all
 SymptomCheck.destroy_all
 Symptom.destroy_all
 Disease.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 
@@ -54,15 +56,12 @@ SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, creat
 
 puts "Creating prescriptions..."
 Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "twice daily", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-
-
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Disease.count} diseases created."
 puts "Done! #{Symptom.count} symptoms created."
 puts "Done! #{SymptomCheck.count} symptom checks created."
 puts "Done! #{Prescription.count} prescriptions created."
-
