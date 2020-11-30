@@ -17,9 +17,9 @@ class UsersController < ApplicationController
       @user = current_user
       @symptom_checks = SymptomCheck.all
       @symptom_check = SymptomCheck.new
-      # @symptom_checks.each do |check|
-      #      @sliced << [check.created_at.to_date, check.rating]
-      #    end
+      @symptom_checks.each do |check|
+           @sliced << [check.created_at.to_date, check.rating]
+         end
     end
   end
 

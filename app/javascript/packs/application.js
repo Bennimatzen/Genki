@@ -40,5 +40,9 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initUserTabs();
+  const symptomChart = document.getElementById("chart-1")
+  if (symptomChart) {
+    Chartkick.eachChart(chart => chart.redraw())
+  }
   initSlider();
 });
