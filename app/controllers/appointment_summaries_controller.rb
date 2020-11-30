@@ -18,7 +18,6 @@ end
 
 def show
   @appointment_summary = AppointmentSummary.find(params[:id])
-
 end
 
 private

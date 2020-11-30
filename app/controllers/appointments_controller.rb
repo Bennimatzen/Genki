@@ -1,8 +1,12 @@
 class AppointmentsController < ApplicationController
-  before_action :set_doctor, except: [:index ,:destroy]
+  before_action :set_doctor, except: [:index ,:destroy, :show]
 
   def index
     @appointments = Appointment.all
+  end
+
+  def show
+    @appointment = Appointment.find(params[:id])
   end
 
   def new
@@ -16,7 +20,8 @@ class AppointmentsController < ApplicationController
     @user = current_user
     @appointment.user = @user
     if @appointment.save
-      redirect_to user_appointments_path(current_user)
+      @appointment.end_date = @appointment.start_date + 1.hour
+      redirect_to appointment_path(@appointment)
     else
       render :new
     end

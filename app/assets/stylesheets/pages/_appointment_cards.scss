@@ -1,6 +1,12 @@
-.appointment-card {
+.appointment-card-mn-ct {
   width: 90%;
-  border-radius: 12px !important;
+  margin: auto;
+  background-color: white;
+}
+
+.appointment-card {
+  width: 100%;
+  border-radius: 5%;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
   overflow: hidden !important;
   display: flex;
@@ -8,8 +14,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
   text-decoration: none;
+  margin: 0;
+  padding: 0px;
+  background-color: white;
+  margin-bottom: 16px;
 }
 
 .appointment-card-2 {
@@ -17,7 +26,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 8px;
+  width: 100%;
+  margin: 0px;
 }
 
 .appointment-card-2 img {
@@ -31,6 +42,7 @@
 
 .appointment-card-1 {
   font-size: 14px;
+  width: 100%;
 }
 
 .appointment-card-3 {
@@ -38,7 +50,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
 }
 
 .appointment-card-dt {
@@ -46,6 +57,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding: 8px;
+}
+
+.appointment-card-dt-md {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid rgb(222, 226, 230);
+  border-right: 1px solid rgb(222, 226, 230);
+  padding: 8px;
 }
 
 .appointment-card-4 {

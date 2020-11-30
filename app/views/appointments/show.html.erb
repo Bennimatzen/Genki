@@ -1,0 +1,71 @@
+<div class="confirmation-container">
+  <div class="confirmation-div">
+    <div class="appointment-confirmation">
+      <i class="fas fa-check"></i>
+    </div>
+    <div>
+      <h1>Your appointment is all booked!</h1>
+    </div>
+  </div>
+  <div class="appointment-card-mn-confirmation">
+    <div class="appointment-card pl-0 pr-0 pb-3 pt-3">
+    <div class="border-bottom appointment-card-1">
+      <%= image_tag current_user.photo, class: "avatar dropdown-toggle" %>
+      <span maxlength="25"> <%= @appointment.reason %> </span>
+    </div>
+    <div class="appointment-card-2 border-bottom">
+      <div>
+        <p class="NHS-register"><b><i>NHS</i></b> doctor</p>
+        <p class="doctor-name">Dr. <%= @appointment.doctor.user.first_name %> <%= @appointment.doctor.user.last_name %></p>
+        <p class="doctor-specialty"><%= @appointment.reason %></p>
+      </div>
+      <div>
+        <%= image_tag @appointment.doctor.user.photo, class: "avatar dropdown-toggle" %>
+      </div>
+    </div>
+      <div class="container appointment-card-3 border-bottom">
+        <div class="container appointment-card-dt">
+          <div>
+            <h6>Date</h6>
+          </div>
+          <div>
+            <%= @appointment.start_date.strftime("%b %d, %Y") %>
+          </div>
+        </div>
+        <div class="container appointment-card-dt-md">
+          <div>
+            <h6>Type</h6>
+          </div>
+          <div>
+            <%= @appointment.appointment_type %>
+          </div>
+        </div>
+        <div class="container appointment-card-dt">
+          <div>
+            <h6>Time</h6>
+          </div>
+          <div>
+            <%= @appointment.start_date.strftime("%l %M %p") %>
+          </div>
+        </div>
+      </div>
+    <div class="container appointment-card-4">
+      <h6>Full records shared</h6>
+      <p>Edit sharing</p>
+    </div>
+  </div>
+</div>
+
+  <div class="container record-share">
+    <div class="app-card-4">
+        <%= simple_form_for [ @doctor, @appointment ] do |f| %>
+          <%= f.input :record_share,
+          wrapper: :custom_boolean_switch %>
+        <% end %>
+    </div>
+  </div>
+
+  <br>
+  <%= link_to "My appointments", user_appointments_path(current_user), class: "btn btn-ghost"  %>
+</div>
+

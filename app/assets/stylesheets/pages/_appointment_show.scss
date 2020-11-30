@@ -1,0 +1,99 @@
+.appointment-card-mn-confirmation {
+  width: 90%;
+  margin: auto;
+  background-color: $primarygreen;
+}
+
+.confirmation-container {
+  background-color: $primarygreen;
+  width: 100%;
+  height: 100vh;
+}
+
+.appointment-confirmation i {
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.6em;
+  background-color: white;
+  color: $primarygreen;
+  font-size: 32px;
+}
+
+.confirmation-div {
+  flex-direction: row;
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.confirmation-div h1 {
+  color: white;
+  padding-top: 8px;
+  font-size: 32px;
+}
+
+.toggle {
+  position: absolute;
+  transform: scale(0);
+}
+
+.toggle + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 40px;
+}
+
+.toggle + label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 36px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #EAEAEA;
+  border-radius: 50rem;
+}
+
+.toggle:checked + label::before {
+  background-color: #1EDD88;
+}
+
+.toggle + label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.2s ease;
+}
+
+.toggle:checked + label::after {
+  left: 18px;
+}
+
+.record_share_toggle {
+  background-color: $primaryorange;
+}
+
+.record-share {
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px ;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  text-decoration: none;
+  background-color: white;
+  margin: auto;
+}
