@@ -2,7 +2,7 @@ class AppointmentSummariesController < ApplicationController
 
 def new
   @appointment = Appointment.find(params[:appointment_id])
-  @appointment_summary = AppointmentSummary.new(appointment_summary_params)
+  @appointment_summary = AppointmentSummary.new
 end
 
 def create
@@ -14,6 +14,11 @@ def create
   else
     render :new
   end
+end
+
+def show
+  @appointment_summary = AppointmentSummary.find(params[:id])
+
 end
 
 private

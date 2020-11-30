@@ -14,6 +14,7 @@ Symptom.destroy_all
 Disease.destroy_all
 User.destroy_all
 Prescription.destroy_all
+AppointmentSummary.destroy_all
 
 puts "Creating users..."
 
