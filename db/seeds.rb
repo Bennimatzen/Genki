@@ -54,9 +54,9 @@ SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, creat
 
 puts "Creating prescriptions..."
 Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "twice daily", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 
 
 
