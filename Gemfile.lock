@@ -1,10 +1,4 @@
 GIT
-  remote: https://github.com/davegudge/chartkick
-  revision: 52a2728e6667902b8aac3315b73214b5828491eb
-  specs:
-    chartkick (2.2.5)
-
-GIT
   remote: https://github.com/glyph-fr/redactor-rails.git
   revision: 6f6655fd71199700f2e5d7bc1f7f3c19f37dde50
   specs:
@@ -89,6 +83,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartkick (3.4.2)
     childprocess (3.0.0)
     cloudinary (1.16.1)
       aws_cf_signer
@@ -274,7 +269,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
-  chartkick!
+  chartkick
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
