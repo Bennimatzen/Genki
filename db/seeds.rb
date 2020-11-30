@@ -7,14 +7,16 @@ lucy_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucyksilver')
 
 puts "Cleaning database...."
 
+Message.destroy_all
+Chat.destroy_all
 AppointmentSummary.destroy_all
 Appointment.destroy_all
 Prescription.destroy_all
 Doctor.destroy_all
-User.destroy_all
 SymptomCheck.destroy_all
 Symptom.destroy_all
 Disease.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 
@@ -57,8 +59,6 @@ Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "twice daily"
 Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-
-
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Disease.count} diseases created."
