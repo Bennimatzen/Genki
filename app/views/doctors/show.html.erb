@@ -1,16 +1,16 @@
 <div class="container-sm">
-  <h3>Welcome <%= @user.first_name %> </h3>
-  <p>I am a <%= @doctor.specialty %> </p>
-  <p> <%= @doctor.description %> </p>
+  <div class="doctor-card">
+    <%= image_tag @doctor.user.photo, class: "avatar dropdown-toggle" %>
+    <h4>Hi! I am Dr. <%= @doctor.user.first_name.capitalize %> <%= @doctor.user.last_name.capitalize %></h4>
+    <p>I am a <%= @doctor.specialty %> - <%= @doctor.description %> </p>
+  </div>
 
-  <h4>Your patients</h4>
-  <% @users.each do |user| %>
-    <% if user.doctors.none? %>
-      <%= link_to new_user_prescription_path(user) do %>
-        <div class="dashboard-card">
-          <%= user.first_name %> <%= user.last_name %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
 </div>
+
+<%= link_to chats_path, method: "post" do %>
+  <p style="color: rgb(2,94,184); text-decoration: none; margin-left: 16px;">Chat with me</p>
+<% end %>
+
+
+
+

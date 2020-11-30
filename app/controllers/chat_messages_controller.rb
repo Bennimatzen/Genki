@@ -1,2 +1,0 @@
-class ChatMessagesController < ApplicationController
-end

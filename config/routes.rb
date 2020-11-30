@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'users#profile'
-  resources :users, only: [:edit, :update] do
+  resources :users, only: [:show, :edit, :update] do
     resources :appointments, only: [:index]
     resources :doctors, only: [:new, :create]
     collection do
@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     resources :symptoms, only: [:index, :new, :create]
   end
 
-  resources :messages, only: [:new, :create]
+  resources :chats, only: [:index, :show, :create, :destroy] do
+    resources :messages, only: [:create]
+  end
 end
