@@ -1,7 +1,9 @@
 <div class="container-sm">
-  <h3>Welcome <%= @user.first_name %> </h3>
-  <p>I am a <%= @doctor.specialty %> </p>
-  <p> <%= @doctor.description %> </p>
+  <div class="doctor-card">
+    <%= image_tag @doctor.user.photo, class: "avatar dropdown-toggle" %>
+    <h4>Hi! I am Dr. <%= @doctor.user.first_name.capitalize %> <%= @doctor.user.last_name.capitalize %></h4>
+    <p>I am a <%= @doctor.specialty %> - <%= @doctor.description %> </p>
+  </div>
 
   <h4>Your patients</h4>
   <% @users.each do |user| %>
@@ -27,4 +29,3 @@
       <% end %>
     <% end %>
 </div>
-
