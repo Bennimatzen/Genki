@@ -16,6 +16,10 @@ def create
   end
 end
 
+def show
+  @appointment_summary = AppointmentSummary.find(params[:id])
+end
+
 private
 
 def appointment_summary_params
