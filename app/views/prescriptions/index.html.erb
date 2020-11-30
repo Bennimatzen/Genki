@@ -1,0 +1,8 @@
+<h1>My Prescriptions</h1>
+
+<% @prescriptions.each do |prescription| %>
+  <div class="dashboard-card">
+    <%= prescription.name %> <%= prescription.dose %> <%= prescription.frequency %> <%= prescription.duration %>
+  </div>
+<% end %>
+

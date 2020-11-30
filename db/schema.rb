@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_223057) do
+ActiveRecord::Schema.define(version: 2020_11_29_221721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,19 @@ ActiveRecord::Schema.define(version: 2020_11_26_223057) do
     t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
+  create_table "prescriptions", force: :cascade do |t|
+    t.string "name"
+    t.string "dose"
+    t.string "frequency"
+    t.string "duration"
+    t.bigint "doctor_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_prescriptions_on_doctor_id"
+    t.index ["user_id"], name: "index_prescriptions_on_user_id"
+  end
+
   create_table "symptom_checks", force: :cascade do |t|
     t.integer "rating"
     t.text "description"
@@ -118,6 +131,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_223057) do
   add_foreign_key "appointments", "users"
   add_foreign_key "diseases", "users"
   add_foreign_key "doctors", "users"
+  add_foreign_key "prescriptions", "doctors"
+  add_foreign_key "prescriptions", "users"
   add_foreign_key "symptom_checks", "symptoms"
   add_foreign_key "symptom_checks", "users"
   add_foreign_key "symptoms", "diseases"
