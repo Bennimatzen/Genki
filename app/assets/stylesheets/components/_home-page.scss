@@ -2,7 +2,7 @@
   background-color: rgb(246, 155, 150);
   background-image: asset-url(registerphoto1);
   background-size: contain;
-  height: 100%;
+  height: calc(100vh - 130px) ;
   position: relative;
   text-align: center;
 }
