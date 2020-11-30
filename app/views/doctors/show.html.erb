@@ -2,4 +2,15 @@
   <h3>Welcome <%= @user.first_name %> </h3>
   <p>I am a <%= @doctor.specialty %> </p>
   <p> <%= @doctor.description %> </p>
+
+  <h4>Your patients</h4>
+  <% @users.each do |user| %>
+    <% if user.doctors.none? %>
+      <%= link_to new_user_prescription_path(user) do %>
+        <div class="dashboard-card">
+          <%= user.first_name %> <%= user.last_name %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
