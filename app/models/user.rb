@@ -22,4 +22,5 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :chat_messages, through: :chats
+  has_many :orders
 end
