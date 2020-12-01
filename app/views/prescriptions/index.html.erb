@@ -1,10 +1,88 @@
-<div class="heading-color">
-  <h2>My Prescriptions</h2>
+<div class="color1">
+  <div class="row justify-content-center mt-10">
+    <div class="col-11 mb-2 mt-3">
+      <div class="heading-color">
+        <div class="conatainer mb-4">
+          <h2>Manage your prescriptions</h2>
+        </div>
+      </div>
+
+
+        <div class="prescription-card-container">
+           <div class="subheading mt-5">
+        Active Prescriptions
+      </div>
+        <% @prescriptions.each do |prescription| %>
+          <div class="prescription-card">
+            <div class="topcard">
+              <%= prescription.frequency %>
+            </div>
+            <div class="middlecard">
+              <div>
+                <%= prescription.name %>
+                <div>
+                  <b><%= prescription.dose %></b>
+                </div>
+              </div>
+            </div>
+            <div class="bottomcard">
+              <%= prescription.duration %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<% @prescriptions.each do |prescription| %>
-  <div class="dashboard-card">
-    <%= prescription.name %> <%= prescription.dose %> <%= prescription.frequency %> <%= prescription.duration %>
-  </div>
-<% end %>
+<style>
+.prescription-card .topcard {
+  border: 1px solid lightgrey;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: none;
+  padding-left: 16px;
+  /*margin-top: 12px;
+  padding-top: 8px;*/
+  height: 48px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
 
+}
+
+.prescription-card .bottomcard {
+  border: 1px solid lightgrey;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top: none;
+  padding-left: 16px;
+  /*margin-top: 12px;
+  padding-bottom: 12px;*/
+  height: 48px;
+  display: flex;
+  align-items: center;
+
+
+
+}
+
+.prescription-card-container {
+  margin: 0 auto;
+}
+
+.prescription-card .middlecard {
+  border: 1px solid lightgrey;
+  padding-left: 16px;
+/*  margin-top: 12px;
+  padding-top: 16px;*/
+  height: 96px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  /*flex-direction: column;*/
+  justify-content: flex-start;
+
+
+}
+</style>

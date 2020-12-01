@@ -55,10 +55,10 @@ SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, creat
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-18 19:08:00")
 
 puts "Creating prescriptions..."
-Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "twice daily", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Repeats 1/2", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Repeats 1/4", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Repeats 1/3", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Disease.count} diseases created."
