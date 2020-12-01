@@ -1,0 +1,21 @@
+<div class="color1">
+  <div class="row justify-content-center mt-10">
+    <div class="col-11 mb-2 mt-3">
+      <div class="heading-color">
+        <div class="conatainer mb-4">
+          <h2>Your prescription order</h2>
+        </div>
+      </div>
+      <div class="col">
+      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <ul class="list-unstyled">
+        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
+        <li><strong>PRESCRIPTION</strong> <%= @order.prescription.name %> [<%= @order.prescription_sku %>]</li>
+        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+        </li>
+      </ul>
+      <p>Estimated delivery in <strong>2 business days</strong></p>
+    </div>
+    </div>
+  </div>
+</div>

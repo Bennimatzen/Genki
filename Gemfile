@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 gem 'chartkick'
 gem 'groupdate'
+gem 'stripe'
+gem 'stripe_event'
 gem 'geocoder'
 
 # Use Active Model has_secure_password
