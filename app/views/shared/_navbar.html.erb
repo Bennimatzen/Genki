@@ -27,7 +27,7 @@
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Letters", "#", class: "dropdown-item" %>
+            <%= link_to "Letters", appointment_summaries_path, class: "dropdown-item" %>
             <% if current_user.unread_messages?%>
               <%= link_to "Messages", chats_path, class: "dropdown-item unread-messages-link"%>
             <% else %>
