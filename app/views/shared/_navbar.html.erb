@@ -14,16 +14,10 @@
           <% if current_user.photo.attached? %>
             <%= image_tag "https://images.unsplash.com/photo-1535737525997-df1c90ca41cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1230&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
-            <%# current_user.chats.each do |chat| %>
-              <%# chat_count = 0 %>
-              <%# chat.messages.each do |message|  %>
-                <%# if message.unread %>
-                  <%# chat_count = chat_count + 1 %>
-                  <!-- <div class="avatar-notification"> -->
-                    <%#= chat_count %>
-                  <!-- </div> -->
-                <%# end %>
-              <%# end %>
+            <%# if current_user.unread_messages? %>
+              <!-- <div class="avatar-notification"> -->
+                <%#= current_user.all_unread_messages %>
+              <!-- </div> -->
             <%# end %>
 
             <%# add notification if new appointment summary  %>

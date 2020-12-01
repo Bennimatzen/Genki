@@ -64,12 +64,12 @@ puts "Creating chats..."
 chat = Chat.create!(doctor: dr_arthur, user: ellie)
 
 puts "Creating messages"
-Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: false)
-Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: false)
-Message.create!(chat: chat, user: ellie, content: "okay", unread: false)
-Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: false)
-Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: false)
-Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: false)
+Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: true)
+Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: true)
+Message.create!(chat: chat, user: ellie, content: "okay", unread: true)
+Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: true)
+Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: true)
+Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: true)
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Doctor.count} doctors created"

@@ -22,4 +22,18 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :chat_messages, through: :chats
+
+  def all_unread_messages
+    chats_count = 0
+    chats.each do |chat|
+      if chat.messages.present?
+        chats_count += chat.unread_messages_count
+      end
+    end
+    return chats_count
+  end
+
+  def unread_messages?
+    all_unread_messages > 0
+  end
 end
