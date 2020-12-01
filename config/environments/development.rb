@@ -41,7 +41,7 @@ Rails.application.configure do
   config.active_support.deprecation = :log
 
   # allow ngrok to create forwarding to url
-  config.host >> fcefd7747f0b.ngrok.io
+  # config.host >> fcefd7747f0b.ngrok.io
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
