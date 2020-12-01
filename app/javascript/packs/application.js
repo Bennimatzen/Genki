@@ -32,7 +32,7 @@ require("chart.js")
 import "bootstrap";
 import { initUserTabs } from '../pages/user/init_user_tabs';
 import { initSlider } from '../pages/user/init_slider';
-
+import { initChatCable } from '../channels/chat_channel';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -46,4 +46,5 @@ document.addEventListener('turbolinks:load', () => {
   }
   initSlider();
   initUserTabs();
+  initChatCable();
 });
