@@ -29,9 +29,11 @@
   <button class="btn user-tab tab" data-target="prescriptions">Prescriptions
   </button>
   <button class="btn user-tab tab" data-target="appointments">Appointments
-    <div class="notification">
-      <%= @appointments.count %>
-    </div>
+    <% if @appointments.count > 0 %>
+      <div class="notification">
+        <%= @appointments.count %>
+      </div>
+    <% end %>
   </button>
 </div>
 
