@@ -21,7 +21,7 @@ end
 
 def show
   @appointment_summary = AppointmentSummary.find(params[:id])
-  @appointment_summary.update_all(unread: false)
+  @appointment_summary.update(unread: false)
 end
 
 private
