@@ -1,0 +1,7 @@
+<h1>Hi, these are your appointment letters:</h1>
+
+<% if @appointment_summaries.count > 0 %>
+  <% @appointment_summaries.each do |summary| %>
+    <p><%= summary %></p>
+  <% end %>
+<% end %>
