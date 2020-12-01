@@ -25,6 +25,7 @@ class UsersController < ApplicationController
       @symptom_checks.each do |check|
         @sliced << [check.created_at.to_date, check.rating]
       end
+      @appointments = current_user.appointments
     end
   end
 
