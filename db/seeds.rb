@@ -79,3 +79,4 @@ puts "Done! #{SymptomCheck.count} symptom checks created."
 puts "Done! #{Prescription.count} prescriptions created."
 puts "Done! #{Chat.count} chats created."
 puts "Done! #{Message.count} messages created."
+
