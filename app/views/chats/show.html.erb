@@ -1,17 +1,29 @@
-<h1>Chat with me</h1>
-<div id="messages" data-chatroom-id="<%= @chat.id %>">
+<h3>Chat with Dr. <%= @chat.doctor.user.last_name %></h1>
+<div class="chat" id="messages" data-chatroom-id="<%= @chat.id %>">
   <% @chat.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.first_name %><%= message.user.last_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
+
+    <% if message.user.doctors.first %>
+      <div class="message-container doctor-message" id="message-<%= message.id %>">
+        <i class="author">
+          <span><%= message.user.first_name %><%= message.user.last_name %></span>
+          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </i>
+        <p style="margin-top: 32px;"><%= message.content %></p>
+      </div>
+    <% else %>
+      <div class="message-container patient-message" id="message-<%= message.id %>">
+        <i class="author">
+          <span><%= message.user.first_name %><%= message.user.last_name %></span>
+          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </i>
+        <p style="margin-top: 32px;"><%= message.content %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= simple_form_for [ @chat, @message ] do |f| %>
+    <%= f.input :content, label: false, placeholder: "Write a message" %>
+    <%= f.button :submit, "Send", class: "btn btn-primary chat-submit" %>
   <% end %>
 </div>
 
-<%= simple_form_for [ @chat, @message ] do |f| %>
-  <%= f.input :content, label: false, placeholder: "Write a message" %>
-  <%= f.submit %>
-<% end %>

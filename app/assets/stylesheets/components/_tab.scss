@@ -1,3 +1,9 @@
 .border-primary {
   border-color: rgb(13, 164, 200) !important;
 }
+
+.tab {
+  border-bottom: 2px solid $primaryblue;
+  padding-bottom: 8px;
+  position: relative;
+}

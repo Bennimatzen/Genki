@@ -1,33 +1,14 @@
-.appointment-card-mn-ct {
-  width: 90%;
-  margin: auto;
-  background-color: white;
-}
 
 .appointment-card {
-  width: 100%;
-  border-radius: 5%;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
-  overflow: hidden !important;
   display: flex;
-  z-index: 0 !important;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   text-decoration: none;
-  margin: 0;
-  padding: 0px;
-  background-color: white;
-  margin-bottom: 16px;
 }
 
 .appointment-card-2 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  width: 100%;
   margin: 0px;
 }
 
@@ -48,7 +29,6 @@
 .appointment-card-3 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -71,7 +51,6 @@
 }
 
 .appointment-card-4 {
-  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;

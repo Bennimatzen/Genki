@@ -1,0 +1,14 @@
+<h1>Hi! <%= current_user.first_name.capitalize %></h1>
+<h5>These are all your active chats:</h5>
+
+<% @chats.each do |chat| %>
+    <div class="chats">
+      <%= link_to chat_path(chat) do  %>
+        <%= image_tag chat.doctor.user.photo, class: "avatar dropdown-toggle" %>
+        <span>Dr. <%= chat.doctor.user.last_name %></span>
+        <br>
+        <br>
+        <small><%= chat.messages.last.content[0..50] %> ...</small>
+      <% end %>
+    </div>
+<% end %>
