@@ -33,9 +33,9 @@ lucy = User.create!(email: "lucy@lewagon.com" , password: "secret", first_name: 
 lucy.photo.attach(io: lucy_img, filename: 'lucy.jpeg', content_type: 'image/jpeg')
 
 puts "Creating doctors"
-Doctor.create!(specialty: "Respiratory", description: "I am here to help you with anything related to your lung system.", user_id: arthur.id)
-Doctor.create!(specialty: "Physio", description: "I am here to help you with any physiological rehabilitation.", user_id: lucien.id)
-Doctor.create!(specialty: "GP", description: "I am here to help you with any minor illnesses.", user_id: lucy.id)
+dr_arthur = Doctor.create!(specialty: "Respiratory", description: "I am here to help you with anything related to your lung system.", user_id: arthur.id)
+dr_lucien = Doctor.create!(specialty: "Physio", description: "I am here to help you with any physiological rehabilitation.", user_id: lucien.id)
+dr_lucy = Doctor.create!(specialty: "GP", description: "I am here to help you with any minor illnesses.", user_id: lucy.id)
 
 puts "Creating diseases..."
 disease = Disease.create!(user: ellie, name: "Cystic Fibrosis")
@@ -60,8 +60,23 @@ Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Repeats 1/4
 Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Repeats 1/3", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
 
+puts "Creating chats..."
+chat = Chat.create!(doctor: dr_arthur, user: ellie)
+
+puts "Creating messages"
+Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: false)
+Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: false)
+Message.create!(chat: chat, user: ellie, content: "okay", unread: false)
+Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: false)
+Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: false)
+Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: false)
+
 puts "Done! #{User.count} users created."
+puts "Done! #{Doctor.count} doctors created"
 puts "Done! #{Disease.count} diseases created."
 puts "Done! #{Symptom.count} symptoms created."
 puts "Done! #{SymptomCheck.count} symptom checks created."
 puts "Done! #{Prescription.count} prescriptions created."
+puts "Done! #{Chat.count} chats created."
+puts "Done! #{Message.count} messages created."
+
