@@ -71,13 +71,23 @@ Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every
 puts "Creating chats..."
 chat = Chat.create!(doctor: dr_arthur, user: ellie)
 
-puts "Creating messages"
+puts "Creating messages..."
 Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: true)
 Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: true)
 Message.create!(chat: chat, user: ellie, content: "okay", unread: true)
 Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: true)
 Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: true)
 Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: true)
+
+puts "Creating appointments..."
+old_appointment1 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,9,15,9,0,0), end_date: DateTime.new(2020,9,15,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
+old_appointment2 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,10,5,9,0,0), end_date: DateTime.new(2020,10,5,10,0,0), record_share: true, user: ellie, doctor: dr_lucy)
+old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,11,8,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
+
+puts "Creating appointment summaries..."
+AppointmentSummary.create!(appointment: old_appointment1, content: "Summary1", plan: "Action Plan1")
+AppointmentSummary.create!(appointment: old_appointment2, content: "Summary2", plan: "Action Plan2")
+AppointmentSummary.create!(appointment: old_appointment3, content: "Summary3", plan: "Action Plan3")
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Doctor.count} doctors created"
@@ -87,4 +97,6 @@ puts "Done! #{SymptomCheck.count} symptom checks created."
 puts "Done! #{Prescription.count} prescriptions created."
 puts "Done! #{Chat.count} chats created."
 puts "Done! #{Message.count} messages created."
+puts "Done! #{Appointment.count} old appintments created."
+puts "Done! #{AppointmentSummary.count} appointment summaries created."
 

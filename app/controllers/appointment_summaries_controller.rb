@@ -1,4 +1,7 @@
 class AppointmentSummariesController < ApplicationController
+def index
+  @appointment_summaries = AppointmentSummary.all
+end
 
 def new
   @appointment = Appointment.find(params[:appointment_id])
@@ -18,6 +21,7 @@ end
 
 def show
   @appointment_summary = AppointmentSummary.find(params[:id])
+  @appointment_summary.update_all(unread: false)
 end
 
 private
