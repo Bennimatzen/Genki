@@ -32,7 +32,9 @@ require("chart.js")
 import "bootstrap";
 import { initUserTabs } from '../pages/user/init_user_tabs';
 import { initSlider } from '../pages/user/init_slider';
+import { mapboxgl } from 'mapbox-gl';
 import { initChatCable } from '../channels/chat_channel';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -40,6 +42,35 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initUserTabs();
+  const initMapbox = () => {
+  const mapElement = document.getElementById('map');
+
+  if (mapElement) { // only build a map if there's a div#map to inject into
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10'
+    });
+    const markers = JSON.parse(mapElement.dataset.markers);
+  markers.forEach((marker) => {
+    new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
+      .addTo(map);
+  });
+  const fitMapToMarkers = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 70, maxZoom: 9, duration: 0 });
+};
+
+if (mapElement) {
+  // [ ... ]
+  fitMapToMarkers(map, markers);
+}
+  }
+};
+  initMapbox()
+
   const symptomChart = document.getElementById("chart-1")
   if (symptomChart) {
     Chartkick.eachChart(chart => chart.redraw())
