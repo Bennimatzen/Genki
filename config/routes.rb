@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   resources :appointment_summaries, only: [:show]
 
+  resources :pharmacies, only: [:show, :index]
+
   resources :diseases, only: [:new, :create] do
     resources :symptoms, only: [:index, :new, :create]
   end
