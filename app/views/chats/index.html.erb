@@ -2,6 +2,17 @@
 <h5>These are all your active chats:</h5>
 
 <% @chats.each do |chat| %>
+  <% if chat.unread_messages_count > 0 %>
+    <div class="unread-chats">
+      <%= link_to chat_path(chat) do  %>
+        <%= image_tag chat.doctor.user.photo, class: "avatar dropdown-toggle" %>
+        <span>Dr. <%= chat.doctor.user.last_name %></span>
+        <br>
+        <br>
+        <small><%= chat.messages.last.content[0..50] %> ...</small>
+      <% end %>
+    </div>
+  <% else %>
     <div class="chats">
       <%= link_to chat_path(chat) do  %>
         <%= image_tag chat.doctor.user.photo, class: "avatar dropdown-toggle" %>
@@ -11,4 +22,5 @@
         <small><%= chat.messages.last.content[0..50] %> ...</small>
       <% end %>
     </div>
+  <% end %>
 <% end %>

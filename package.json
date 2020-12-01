@@ -10,6 +10,7 @@
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
     "jquery": "^3.5.1",
+    "mapbox-gl": "^1.13.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },

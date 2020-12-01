@@ -1,0 +1,23 @@
+<h1>Hi, these are your appointment letters:</h1>
+
+<% if @appointment_summaries.count > 0 %>
+  <% @appointment_summaries.each do |summary| %>
+    <% if summary.unread %>
+      <%= link_to appointment_summary_path(summary) do %>
+        <div class="unread-summary-card">
+          <%= image_tag summary.appointment.doctor.user.photo, class: "avatar dropdown-toggle" %>
+          <span>Dr. <%= summary.appointment.doctor.user.last_name %></span>
+          <small><%= summary.appointment.start_date %></small>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to appointment_summary_path(summary) do %>
+        <div class="summary-card">
+          <%= image_tag summary.appointment.doctor.user.photo, class: "avatar dropdown-toggle" %>
+          <span>Dr. <%= summary.appointment.doctor.user.last_name %></span>
+          <small><%= summary.appointment.start_date.day %>-<%= summary.appointment.start_date.month %>-<%= summary.appointment.start_date.year %></small>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

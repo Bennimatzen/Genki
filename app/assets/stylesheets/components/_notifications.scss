@@ -11,3 +11,17 @@
   top: -10px;
   right: 0;
 }
+
+.avatar-notification {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  right: 8px;
+  bottom: 40px;
+}

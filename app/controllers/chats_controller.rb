@@ -5,6 +5,7 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
+    @chat.messages.update_all(unread: false)
     @message = Message.new
   end
 

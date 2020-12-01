@@ -1,0 +1,31 @@
+<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+<script>
+if (window.innerWidth <= 400) {
+  callFrame = window.DailyIframe.createFrame({
+  showLeaveButton: true,
+      iframeStyle: {
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      height: '92%'
+      }
+});
+
+  callFrame.join({ url: 'https://genki.daily.co/ellie' })
+} else {
+      callFrame = window.DailyIframe.createFrame({
+      showLeaveButton: true,
+      iframeStyle: {
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      width: '50%',
+      height: '100%'
+      }
+});
+
+  callFrame.join({ url: 'https://genki.daily.co/ellie' })
+}
+
+
+</script>

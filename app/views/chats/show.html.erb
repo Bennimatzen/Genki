@@ -1,4 +1,4 @@
-<h3>Chat with Dr. <%= @chat.doctor.user.last_name %></h1>
+<h3>Chat with Dr. <%= @chat.doctor.user.last_name %></h3>
 <div class="chat" id="messages" data-chatroom-id="<%= @chat.id %>">
   <% @chat.messages.each do |message| %>
 
