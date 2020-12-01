@@ -14,21 +14,12 @@
             <p>Active Prescriptions</p>
           </div>
 
-  <!-- div class="container doc-card mb-5">
-        <div>
-          <p><b><i>NHS</i></b> doctor</p>
-          <p>Dr. <%#= doctor.user.first_name %> <%#= doctor.user.last_name %></p>
-          <p><%#= doctor.specialty %></p>
-  </div> -->
 
 
 <% @prescriptions.each do |prescription| %>
   <div class="prescription-card">
     <div class="topcard">
-<<<<<<< HEAD
 
-=======
->>>>>>> bc28e1d9c02fad43f333298d66fa70db4b01ebb2
       <%= prescription.frequency %>
     </div>
     <div class="middlecard">
