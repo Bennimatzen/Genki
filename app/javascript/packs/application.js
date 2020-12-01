@@ -45,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
     Chartkick.eachChart(chart => chart.redraw())
   }
   initSlider();
+  initUserTabs();
 });
