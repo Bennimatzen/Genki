@@ -1,6 +1,68 @@
-<h1>Your Appointment Summary</h1>
+<div class="color1">
+  <div class="row justify-content-center mt-10">
+    <div class="col-11 mb-2 mt-3">
+      <div class="heading-color">
+        <div class="left-bundled-heading">
+            <h2>Your Appointment Summary</h2>
+        </div>
+        <div class="appointment_summary-card"> <!-- dashboard-card -->
+          <div class="topcard">
+            <%= @appointment_summary.content %>
+          </div>
+          <div class="middlecard">
+           <%= @appointment_summary.plan %>
+          </div>
+          <div class="button-to-prescription">
+           <%= link_to "My prescription", user_prescriptions_path(@appointment_summary.user), class: "btn btn-ghost-appoinment_summary" %>
 
-<div class="dashboard-card">
-  <p><%= @appointment_summary.content %></p>
-  <p><%= @appointment_summary.plan %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<style>
+  .left-bundled-heading {
+    color: rgb(5, 80, 251);
+  }
+
+  .appointment_summary-card .topcard {
+  border: 1px solid lightgrey;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: none;
+  padding-left: 16px;
+  /*margin-top: 12px;*/
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  height: 48px;
+
+}
+
+.appointment_summary-card .middlecard {
+  border: 1px solid lightgrey;
+  padding-left: 16px;
+ /* margin-top: 12px;
+  padding-top: 16px;*/
+  display: flex;
+  align-items: center;
+  height: 48px;
+  }
+
+  .appointment_summary-card .button-to-prescription {
+  border: 1px solid lightgrey;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top: none;
+  padding-left: 16px;
+  /*margin-top: 12px;*/
+  /*padding-bottom: 12px;*/
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+</style>
