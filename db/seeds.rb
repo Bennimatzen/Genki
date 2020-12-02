@@ -94,9 +94,21 @@ old_appointment2 = Appointment.create!(appointment_type: "Remote", start_date: D
 old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,11,8,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
 
 puts "Creating appointment summaries..."
-AppointmentSummary.create!(appointment: old_appointment1, content: "Summary1", plan: "Action Plan1", unread: false)
-AppointmentSummary.create!(appointment: old_appointment2, content: "Summary2", plan: "Action Plan2", unread: false)
-AppointmentSummary.create!(appointment: old_appointment3, content: "Summary3", plan: "Action Plan3", unread: false)
+AppointmentSummary.create!(appointment: old_appointment1, content: "- Symptoms of persistent cough, tiredness, and wheezing presented.
+                                                                    - Diagnosis of suspected bacterial chest infection.",
+                                                                    plan: "
+                                                                    - Follow one course of Amoxicillin.
+                                                                    - Drink lots of water and get lots of rest.
+                                                                    - If you do not feel better after one week book a dollow up appointment with a GP", unread: false)
+AppointmentSummary.create!(appointment: old_appointment2, content: "- Persistent issues with lower back pain.
+                                                                    - Brought on when working on a desk for long periods.",
+                                                                    plan: "
+                                                                    - Decision to put on a low card diet to bring BMI which is above 25 down near to 20.
+                                                                    - Try to lower in take of carbs, especially at dinner times.
+                                                                    - When working take a short break after 30 mins and regularly do stretches shown during session.", unread: false)
+AppointmentSummary.create!(appointment: old_appointment3, content: "- Blood pressure and adherence are regular. Repeat prescription renewed.",
+                                                                    plan: "
+                                                                    - Prescription renewed, no further actions required.", unread: false)
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Doctor.count} doctors created"
