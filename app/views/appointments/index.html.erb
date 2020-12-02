@@ -14,36 +14,36 @@
 <h5 class="container">Upcoming appointments</h5>
 <!-- If no appointments, show some text -->
 <% @appointments.each do |appointment| %>
-<div class="dashboard-card">
-  <div class="appointment-card-2 border-bottom d-flex justify-content-between pl-0 pr-0">
-    <div class="p-3">
-      <p class="NHS-register"><b><i>NHS</i></b> doctor</p>
-      <p class="doctor-name">Dr. <%= appointment.doctor.user.first_name %> <%= appointment.doctor.user.last_name %></p>
-      <p class="doctor-specialty"><%= appointment.reason %></p>
+  <div class="dashboard-card">
+    <div class="appointment-card-2 border-bottom d-flex justify-content-between pl-0 pr-0">
+      <div class="p-3">
+        <p class="NHS-register"><b>NHS </b>doctor</p>
+        <p class="doctor-name">Dr. <%= appointment.doctor.user.first_name %> <%= appointment.doctor.user.last_name %></p>
+        <p class="doctor-specialty"><%= appointment.reason %></p>
+      </div>
+      <div class="p-3">
+        <%= image_tag appointment.doctor.user.photo, class: "avatar dropdown-toggle" %>
+      </div>
     </div>
-    <div class="p-3">
-      <%= image_tag appointment.doctor.user.photo, class: "avatar dropdown-toggle" %>
+    <div class="d-flex justify-content-between border-bottom">
+      <div class="text-center px-3 pl-3 py-3 flex-fill">
+        <h6>Date</h6>
+        <%= appointment.start_date.strftime("%b %d, %y") %>
+      </div>
+      <div class="border-right border-left text-center px-3 py-3 flex-fill">
+        <h6>Type</h6>
+        <%= appointment.appointment_type %>
+      </div>
+      <div class="text-center px-3 py-3 flex-fill">
+        <h6>Time</h6>
+          <%= appointment.start_date.strftime("%l %M %p") %>
+      </div>
+    </div>
+    <div class="appointment-card-4 p-3">
+      <h6>Full records shared</h6>
+      <p>Edit sharing</p>
     </div>
   </div>
-  <div class="d-flex justify-content-between border-bottom">
-    <div class="text-center px-3 pl-3 py-3 flex-fill">
-      <h6>Date</h6>
-      <%= appointment.start_date.strftime("%b %d, %y") %>
-    </div>
-    <div class="border-right border-left text-center px-3 py-3 flex-fill">
-      <h6>Type</h6>
-      <%= appointment.appointment_type %>
-    </div>
-    <div class="text-center px-3 py-3 flex-fill">
-      <h6>Time</h6>
-        <%= appointment.start_date.strftime("%l %M %p") %>
-    </div>
-  </div>
-  <div class="appointment-card-4 p-3">
-    <h6>Full records shared</h6>
-    <p>Edit sharing</p>
-  </div>
-</div>
 <% end %>
 <br>
 <br>

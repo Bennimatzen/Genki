@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    # @upcoming_appointments = Appointment.where('start_date > ?', DateTime.now)
   end
 
   def show
@@ -20,6 +21,7 @@ class AppointmentsController < ApplicationController
     @user = current_user
     @appointment.user = @user
     if @appointment.save
+      Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! you have a new appointment in the agenda with Dr. #{@appointment.doctor.user.last_name.capitalize}, for #{@appointment.start_date}", unread: true)
       @appointment.end_date = @appointment.start_date + 1.hour
       redirect_to appointment_path(@appointment)
     else

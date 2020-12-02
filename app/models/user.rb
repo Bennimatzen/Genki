@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :chats, dependent: :destroy
   has_many :chat_messages, through: :chats
   has_many :orders
+  has_one :prescription_checks
 
   def all_unread_messages
     chats_count = 0
@@ -39,16 +40,20 @@ class User < ApplicationRecord
   end
 
   def all_unread_summaries
-    summaries_count = 0
-    appointment_summaries.each do |summary|
-      if summary.present?
-        summaries_count += summary.unread_summaries_count
+    letters_count = 0
+    appointment_summaries.each do |letter|
+      if letter.unread?
+        letters_count += letter.unread_summaries_count
       end
     end
-    return summaries_count
+    return letters_count
   end
 
   def unread_letters?
     all_unread_summaries > 0
+  end
+
+  def doctor?
+    self.doctors.any?
   end
 end

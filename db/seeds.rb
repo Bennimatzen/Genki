@@ -8,6 +8,7 @@ genki_img = URI.open('https://m.media-amazon.com/images/I/71lBytwsHzL._AC_UL320_
 
 puts "Cleaning database..."
 
+PrescriptionCheck.destroy_all
 Order.destroy_all
 Message.destroy_all
 Chat.destroy_all
@@ -19,7 +20,6 @@ SymptomCheck.destroy_all
 Symptom.destroy_all
 Disease.destroy_all
 User.destroy_all
-
 
 puts "Creating users..."
 
@@ -53,10 +53,10 @@ puts "Creating symptoms..."
 symptom = Symptom.create!(disease: Disease.all.sample, name: "Cough")
 
 puts "Creating symptom checks..."
-SymptomCheck.create!(rating: 5, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-26 19:08:00")
-SymptomCheck.create!(rating: 4, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-25 19:08:00")
+SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-26 19:08:00")
+SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-25 19:08:00")
 SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-24 19:08:00")
-SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-23 19:08:00")
+SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-23 19:08:00")
 SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-22 19:08:00")
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-21 19:08:00")
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-20 19:08:00")
@@ -72,21 +72,21 @@ Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB, 
 Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London, Vereinigtes Königreich")
 
 puts "Creating prescriptions..."
-Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Repeats 1/2", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Tobramycin-300mg-1-2')
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Repeats 1/4", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Salbutamol-100mcg-1-4')
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Repeats 1/3", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Hypertonic-saline-4ml-1-3')
-Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Creaon-1-c')
+Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Repeats 1/2", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Tobramycin-300mg-1-2')
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Repeats 1/4", duration: 15, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Salbutamol-100mcg-1-4')
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Repeats 1/3", duration: 11, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Hypertonic-saline-4ml-1-3')
+Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: 43, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Creaon-1-c')
 
 puts "Creating chats..."
 chat = Chat.create!(doctor: dr_arthur, user: ellie)
 
 puts "Creating messages..."
-Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: true)
-Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: true)
-Message.create!(chat: chat, user: ellie, content: "okay", unread: true)
-Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: true)
-Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: true)
-Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: true)
+Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: false)
+Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: false)
+Message.create!(chat: chat, user: ellie, content: "okay", unread: false)
+Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: false)
+Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: false)
+Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: false)
 
 puts "Creating appointments..."
 old_appointment1 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,9,15,9,0,0), end_date: DateTime.new(2020,9,15,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
@@ -94,9 +94,21 @@ old_appointment2 = Appointment.create!(appointment_type: "Remote", start_date: D
 old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,11,8,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
 
 puts "Creating appointment summaries..."
-AppointmentSummary.create!(appointment: old_appointment1, content: "Summary1", plan: "Action Plan1", unread: false)
-AppointmentSummary.create!(appointment: old_appointment2, content: "Summary2", plan: "Action Plan2", unread: false)
-AppointmentSummary.create!(appointment: old_appointment3, content: "Summary3", plan: "Action Plan3", unread: false)
+AppointmentSummary.create!(appointment: old_appointment1, content: "- Symptoms of persistent cough, tiredness, and wheezing presented.
+                                                                    - Diagnosis of suspected bacterial chest infection.",
+                                                                    plan: "
+                                                                    - Follow one course of Amoxicillin.
+                                                                    - Drink lots of water and get lots of rest.
+                                                                    - If you do not feel better after one week book a dollow up appointment with a GP", unread: false)
+AppointmentSummary.create!(appointment: old_appointment2, content: "- Persistent issues with lower back pain.
+                                                                    - Brought on when working on a desk for long periods.",
+                                                                    plan: "
+                                                                    - Decision to put on a low card diet to bring BMI which is above 25 down near to 20.
+                                                                    - Try to lower in take of carbs, especially at dinner times.
+                                                                    - When working take a short break after 30 mins and regularly do stretches shown during session.", unread: false)
+AppointmentSummary.create!(appointment: old_appointment3, content: "- Blood pressure and adherence are regular. Repeat prescription renewed.",
+                                                                    plan: "
+                                                                    - Prescription renewed, no further actions required.", unread: false)
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Doctor.count} doctors created"

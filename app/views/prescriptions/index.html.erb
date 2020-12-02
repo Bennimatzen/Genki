@@ -14,8 +14,8 @@
           Active Prescriptions
         </div>
         <% @prescriptions.each do |prescription| %>
-          <%= link_to user_prescription_path(current_user, prescription) do  %>
-            <div class="prescription-card">
+          <div class="prescription-card">
+            <%= link_to user_prescription_path(current_user, prescription) do  %>
               <div class="topcard">
                 <%= prescription.frequency %>
               </div>
@@ -28,11 +28,11 @@
                 </div>
               </div>
               <div class="bottomcard">
-                <%= prescription.duration %>
+                <%= prescription.duration %> days
               </div>
-            </div>
-          <% end %>
-
+            <% end %>
+            <%= link_to "Set reminder", user_prescription_path(current_user, prescription), method: "patch"  %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -66,10 +66,6 @@
   height: 48px;
   display: flex;
   align-items: center;
-
-
-
-
 }
 
 .prescription-card-container {
@@ -91,7 +87,5 @@
   align-items: center;
   /*flex-direction: column;*/
   justify-content: flex-start;
-
-
 }
 </style>
