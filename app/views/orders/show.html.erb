@@ -6,8 +6,45 @@
           <h2>Your prescription order</h2>
         </div>
       </div>
-      <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <div class="prescription-card-container">
+        <div class="prescription-card">
+          <div class="topcard">
+            <div class="small-subheadings">
+              Pharmacy
+            </div>
+            <%= @order.pharmacy.name %>
+          </div>
+          <div class="middlecard">
+            <div>
+              <div class="small-subheadings">
+                Delivery Adress
+              </div>
+              <%= @order.pharmacy.address %>
+              <div>
+
+              </div>
+            </div>
+          </div>
+          <div class="middlecard">
+             <div class="small-subheadings-middelcard">
+              Prescription name + dose
+            </div>
+            <%= @order.prescription.name %>
+
+             <b><%= @order.prescription.dose %></b>
+          </div>
+          <div class="bottomcard">
+             <div class="small-subheadings">
+              Price £
+            </div>
+            <p>Amount: <%= humanized_money_with_symbol(@order.prescription.price) %></p>
+          </div>
+        </div>
+
+        <h4>Location for your prescription pick up</h4>
+
+      <!-- <div class="col"> -->
+      <!-- <h2>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h2>
       <ul class="list-unstyled">
         <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
         <li><strong>PRESCRIPTION</strong> <%= @order.prescription.name %> [<%= @order.prescription_sku %>]</li>
@@ -15,7 +52,97 @@
         </li>
       </ul>
       <p>Estimated delivery in <strong>2 business days</strong></p>
-    </div>
+      <div class="above-map-heading mt-5 mb-3">
+        <u><h5>Look for your location</h5></u>
+      </div> -->
+      <div id="map"
+          style="width: 100%; height: 40vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    <!-- </div> -->
     </div>
   </div>
 </div>
+<br>
+<br>
+<br>
+
+
+<style>
+  .above-map-heading {
+    color: black;
+    text-align: center;
+  }
+  .prescription-card .topcard {
+  border: 1px solid lightgrey;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: none;
+  padding-left: 16px;
+  /*margin-top: 12px;
+  padding-top: 8px;*/
+  height: 48px;
+  font-weight: bolder;
+  /*display: flex;*/
+  align-items: center;
+
+}
+
+
+
+#map {
+  margin-top: 16px;
+
+  border-radius: 10px;
+}
+
+.prescription-card .bottomcard {
+  border: 1px solid lightgrey;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top: none;
+  padding-left: 16px;
+  margin-top: 12px;
+  /*padding-bottom: 12px;*/
+  height: 48px;
+  /*display: flex;*/
+  align-items: center;
+  /*color: white;*/
+  /*background-color: rgb(255, 101, 30);*/
+  text-align: middle;
+}
+
+.prescription-card-container {
+  margin: 0 auto;
+}
+
+.small-subheadings {
+  font-size: xx-small;
+  color: grey;
+  margin-top: 4px;
+  margin-top: 8px;
+}
+
+.small-subheadings-middelcard {
+  font-size: xx-small;
+  color: grey;
+  margin-top: 16px;
+
+  margin-bottom: 2px;
+}
+
+.prescription-card .middlecard {
+  border: 1px solid lightgrey;
+  padding-left: 16px;
+/*  margin-top: 12px;
+  padding-top: 16px;*/
+  height: 75px;
+  font-weight: bolder;
+  /*display: flex;*/
+  align-items: center;
+  /*flex-direction: column;*/
+  justify-content: flex-start;
+
+}
+</style>

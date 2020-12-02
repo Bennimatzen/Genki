@@ -2,6 +2,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    @markers =
+      [{
+        lat: @order.pharmacy.latitude,
+        lng: @order.pharmacy.longitude
+      }]
+
   end
 
   def create
