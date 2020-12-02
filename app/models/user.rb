@@ -36,4 +36,8 @@ class User < ApplicationRecord
   def unread_messages?
     all_unread_messages > 0
   end
+
+  def doctor?
+    self.doctors.any?
+  end
 end
