@@ -1,4 +1,4 @@
 meta_product_name: "Genki"
 meta_title: "Genki - Healthcare in your pocket"
 meta_description: "Patient-centred, personalised digital health records"
-meta_image: "registerphoto1.png" # should exist in `app/assets/images/`
+meta_image: "og-image-genki.png" # should exist in `app/assets/images/`
