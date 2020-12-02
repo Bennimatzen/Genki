@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
-    # @upcoming_appointments = Appointment.where('start_date > ?', DateTime.now)
+    @upcoming_appointments = Appointment.where('start_date > ?', DateTime.now)
   end
 
   def show

@@ -26,6 +26,7 @@ class UsersController < ApplicationController
         @sliced << [check.created_at.to_date, check.rating]
       end
       @appointments = current_user.appointments
+      @upcoming_appointments = Appointment.where('start_date > ?', DateTime.now)
     end
   end
 

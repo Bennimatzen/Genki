@@ -29,9 +29,9 @@
   <button class="btn user-tab tab" data-target="prescriptions">Prescriptions
   </button>
   <button class="btn user-tab tab" data-target="appointments">Appointments
-    <% if @appointments.count > 0 %>
+    <% if @upcoming_appointments.count > 0 %>
       <div class="notification">
-        <%= @appointments.count %>
+        <%= @upcoming_appointments.count %>
       </div>
     <% end %>
   </button>
@@ -82,7 +82,7 @@
 </div>
 
 <div class="user-ul" id="appointments">
-  <% @appointments.each do |appointment| %>
+  <% @upcoming_appointments.each do |appointment| %>
     <div class="dashboard-card appointment-card">
       <div class="appointment-card-2 border-bottom">
         <div>
