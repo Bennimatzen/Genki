@@ -1,68 +1,30 @@
-<div class="color1">
-  <div class="row justify-content-center mt-10">
-    <div class="col-11 mb-2 mt-3">
-      <div class="heading-color">
-        <div class="left-bundled-heading">
-            <h2>Your Appointment Summary</h2>
-        </div>
-        <div class="appointment_summary-card"> <!-- dashboard-card -->
-          <div class="topcard">
-            <%= @appointment_summary.content %>
-          </div>
-          <div class="middlecard">
-           <%= @appointment_summary.plan %>
-          </div>
-          <div class="button-to-prescription">
-           <%= link_to "My prescription", user_prescriptions_path(@appointment_summary.user), class: "btn btn-ghost-appoinment_summary" %>
+<h3 class="container mb-5">Treatment overview</h3>
+<h6 class="container"><strong>Specialist appointment for <%= current_user.first_name %></strong></h6>
+<p class="container appointment-summary">with Dr.<%= @appointment_summary.doctor.user.first_name %><%= @appointment_summary.doctor.user.last_name %> at <%= @appointment_summary.appointment.start_date.strftime("%a %l:%M %e %b %y") %></p>
 
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="dashboard-card py-3 px-1"> <!-- dashboard-card -->
+  <div class="container text-left">
+    <p>Appointment Summary</p>
+    <p class="appointment-summary"><%= @appointment_summary.content %></p>
   </div>
+  <div class="container text-left">
+    <p>Your actions</p>
+    <p class="appointment-summary"> <%= @appointment_summary.plan %> </p>
+  </div>
+
 </div>
 
+<%= link_to user_prescriptions_path(@appointment_summary.user) do %>
+  <div class="dashboard-card d-flex justify-content-around align-items-center p-3 text-decoration-none">
+    <i class="fas fa-pills"></i>
+    <div class="container text-left d-flex flex-column">
+      <p class="m-0"><strong>See prescriptions</strong></p>
+      <p class="appointment-summary mt-1 mb-0"> Click here to see new prescription added </p>
+    </div>
+    <h4>></h4>
+  </div>
+<% end %>
+<br>
+<br>
+<br>
 
-<style>
-  .left-bundled-heading {
-    color: rgb(5, 80, 251);
-  }
-
-  .appointment_summary-card .topcard {
-  border: 1px solid lightgrey;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border-bottom: none;
-  padding-left: 16px;
-  /*margin-top: 12px;*/
-  padding-top: 8px;
-  display: flex;
-  align-items: center;
-  height: 48px;
-
-}
-
-.appointment_summary-card .middlecard {
-  border: 1px solid lightgrey;
-  padding-left: 16px;
- /* margin-top: 12px;
-  padding-top: 16px;*/
-  display: flex;
-  align-items: center;
-  height: 48px;
-  }
-
-  .appointment_summary-card .button-to-prescription {
-  border: 1px solid lightgrey;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  border-top: none;
-  padding-left: 16px;
-  /*margin-top: 12px;*/
-  /*padding-bottom: 12px;*/
-  display: flex;
-  align-items: center;
-  height: 48px;
-}
-
-</style>

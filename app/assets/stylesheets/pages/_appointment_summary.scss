@@ -1,0 +1,23 @@
+.appointment-summary {
+  font-weight: 100;
+}
+
+.dashboard-card i {
+  padding: 8px;
+  font-size: 24px;
+  border-radius: 50%;
+  background-color: $primaryblue;
+  color: white;
+}
+
+.dashboard-card p {
+  color: black;
+}
+
+.dashboard-card h4 {
+  color: black;
+}
+
+a:active {
+  text-decoration: none;
+}
