@@ -1,8 +1,4 @@
 class SymptomChecksController < ApplicationController
-  def new
-    @symptom_check = SymptomCheck.new
-  end
-
   def create
     @user = current_user
     @symptom = @user.symptoms.first
