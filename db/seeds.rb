@@ -53,10 +53,10 @@ puts "Creating symptoms..."
 symptom = Symptom.create!(disease: Disease.all.sample, name: "Cough")
 
 puts "Creating symptom checks..."
-SymptomCheck.create!(rating: 5, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-26 19:08:00")
-SymptomCheck.create!(rating: 4, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-25 19:08:00")
+SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-26 19:08:00")
+SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-25 19:08:00")
 SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-24 19:08:00")
-SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-23 19:08:00")
+SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-23 19:08:00")
 SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-22 19:08:00")
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-21 19:08:00")
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-20 19:08:00")
@@ -81,12 +81,12 @@ puts "Creating chats..."
 chat = Chat.create!(doctor: dr_arthur, user: ellie)
 
 puts "Creating messages..."
-Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: true)
-Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: true)
-Message.create!(chat: chat, user: ellie, content: "okay", unread: true)
-Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: true)
-Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: true)
-Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: true)
+Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: false)
+Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: false)
+Message.create!(chat: chat, user: ellie, content: "okay", unread: false)
+Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: false)
+Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: false)
+Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: false)
 
 puts "Creating appointments..."
 old_appointment1 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,9,15,9,0,0), end_date: DateTime.new(2020,9,15,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)

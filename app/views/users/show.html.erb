@@ -4,23 +4,28 @@
 
 <div class="container m-3">
   <% @doctors.each do |doctor| %>
-      <div class="container doc-card mb-5">
-        <div>
-          <p class="NHS-register" style="margin-top: 20px; margin-bottom: 0px;"><b><i>NHS</i></b> doctor</p>
-          <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
-          <p class="doctor-specialty"><%= doctor.specialty %></p>
 
-          <% if Chat.where(doctor: doctor, user: current_user).last %>
-            <%= link_to "Resume a chat", chat_path(Chat.where(doctor: doctor, user: current_user).last) %>
-          <% else %>
-            <%= link_to "Stat a chat", chats_path(doctor: doctor.id), method: :post%>
-          <% end %>
+      <% if doctor.user.last_name == "Genki" %>
+        <% next %>
+      <% else %>
+        <div class="container doc-card mb-5">
+          <div>
+            <p class="NHS-register" style="margin-top: 20px; margin-bottom: 0px;"><b><i>NHS</i></b> doctor</p>
+            <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
+            <p class="doctor-specialty"><%= doctor.specialty %></p>
 
-          <p style="margin-top:50px;"><%= link_to "Make an appointment", new_doctor_appointment_path(doctor) %> </p>
+            <% if Chat.where(doctor: doctor, user: current_user).last %>
+              <%= link_to "Resume a chat", chat_path(Chat.where(doctor: doctor, user: current_user).last) %>
+            <% else %>
+              <%= link_to "Stat a chat", chats_path(doctor: doctor.id), method: :post%>
+            <% end %>
+
+            <p style="margin-top:50px;"><%= link_to "Make an appointment", new_doctor_appointment_path(doctor) %> </p>
+          </div>
+          <div>
+          <%= image_tag doctor.user.photo, class: "avatar dropdown-toggle" %>
+          </div>
         </div>
-        <div>
-        <%= image_tag doctor.user.photo, class: "avatar dropdown-toggle" %>
-        </div>
-      </div>
+      <% end %>
   <% end %>
 </div>
