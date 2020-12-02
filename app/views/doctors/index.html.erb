@@ -7,17 +7,21 @@
 </div>
 
 <% @doctors.each do |doctor| %>
-  <%= link_to new_doctor_appointment_path(doctor) do %>
-    <div class="container doc-card mb-3">
-      <div>
-        <p class="NHS-register"><b><i>NHS</i></b> doctor</p>
-        <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
-        <p class="doctor-specialty"><%= doctor.specialty %></p>
+  <% if doctor.user.last_name == "Genki" %>
+    <% next %>
+  <% else %>
+    <%= link_to new_doctor_appointment_path(doctor) do %>
+      <div class="container doc-card mb-3">
+        <div>
+          <p class="NHS-register"><b><i>NHS</i></b> doctor</p>
+          <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
+          <p class="doctor-specialty"><%= doctor.specialty %></p>
+        </div>
+        <div>
+        <%= image_tag doctor.user.photo, class: "avatar dropdown-toggle" %>
+        </div>
       </div>
-      <div>
-      <%= image_tag doctor.user.photo, class: "avatar dropdown-toggle" %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
 <br>

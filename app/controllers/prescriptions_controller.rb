@@ -29,6 +29,7 @@ class PrescriptionsController < ApplicationController
     @prescription.user = @user
 
     if @prescription.save
+      Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! Dr. #{@doctor.user.last_name.capitalize} gave you a new prescription.", unread: true)
       redirect_to user_prescriptions_path(current_user)
     else
       render :new
