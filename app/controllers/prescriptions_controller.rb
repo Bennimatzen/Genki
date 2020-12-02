@@ -7,6 +7,13 @@ class PrescriptionsController < ApplicationController
 
   def show
     @prescription = Prescription.find(params[:id])
+    @pharmacies = Pharmacy.all
+    @markers = @pharmacies.geocoded.map do |pharmacy|
+      {
+        lat: pharmacy.latitude,
+        lng: pharmacy.longitude
+      }
+    end
   end
 
   def new
