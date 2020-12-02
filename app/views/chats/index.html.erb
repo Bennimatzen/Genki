@@ -19,7 +19,9 @@
         <span>Dr. <%= chat.doctor.user.last_name %></span>
         <br>
         <br>
-        <small><%= chat.messages.last.content[0..50] %> ...</small>
+        <% if chat.messages.any? %>
+          <small><%= chat.messages.last.content[0..50] %> ...</small>
+        <% end %>
       <% end %>
     </div>
   <% end %>

@@ -4,8 +4,9 @@ file = URI.open('https://images.unsplash.com/photo-1535737525997-df1c90ca41cb?ix
 arthur_img = URI.open('https://kitt.lewagon.com/placeholder/users/arthur-littm')
 lucien_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucien-george')
 lucy_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucyksilver')
+genki_img = URI.open('https://m.media-amazon.com/images/I/71lBytwsHzL._AC_UL320_.jpg')
 
-puts "Cleaning database...."
+puts "Cleaning database..."
 
 Order.destroy_all
 Message.destroy_all
@@ -33,6 +34,12 @@ lucien.photo.attach(io: lucien_img, filename: 'lucien.jpeg', content_type: 'imag
 
 lucy = User.create!(email: "lucy@lewagon.com" , password: "secret", first_name: "Lucy", last_name: "Silver", dob: DateTime.new(1994,12,10), gender: "Female", nhs_number: 12345678)
 lucy.photo.attach(io: lucy_img, filename: 'lucy.jpeg', content_type: 'image/jpeg')
+
+puts "Creting Genki Bot..."
+genki = User.create!(email: "genki@bot.com" , password: "secret", first_name: "Bot", last_name: "Genki", dob: DateTime.new(1992,8,12), gender: "Sexy Bot", nhs_number: 12345678)
+genki.photo.attach(io: genki_img, filename: 'genki.jpeg', content_type: 'image/jpeg')
+genki_bot = Doctor.create!(specialty: "My specialty is helping you", description: "Hi! I am Genki Bot", user_id: genki.id)
+genki_bot_chat = Chat.create!(doctor: genki_bot, user: ellie)
 
 puts "Creating doctors"
 dr_arthur = Doctor.create!(specialty: "Respiratory", description: "I am here to help you with anything related to your lung system.", user_id: arthur.id)
@@ -87,9 +94,9 @@ old_appointment2 = Appointment.create!(appointment_type: "Remote", start_date: D
 old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,11,8,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
 
 puts "Creating appointment summaries..."
-AppointmentSummary.create!(appointment: old_appointment1, content: "Summary1", plan: "Action Plan1")
-AppointmentSummary.create!(appointment: old_appointment2, content: "Summary2", plan: "Action Plan2")
-AppointmentSummary.create!(appointment: old_appointment3, content: "Summary3", plan: "Action Plan3")
+AppointmentSummary.create!(appointment: old_appointment1, content: "Summary1", plan: "Action Plan1", unread: false)
+AppointmentSummary.create!(appointment: old_appointment2, content: "Summary2", plan: "Action Plan2", unread: false)
+AppointmentSummary.create!(appointment: old_appointment3, content: "Summary3", plan: "Action Plan3", unread: false)
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Doctor.count} doctors created"

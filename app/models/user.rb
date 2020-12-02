@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :dob, presence: true
   validates :nhs_number, presence: true
-  validates :gender, inclusion: { in: ["Male", "Female"] }
+  validates :gender, inclusion: { in: ["Male", "Female", "Sexy Bot"] }
 
   has_many :diseases
   has_many :symptoms, through: :diseases
