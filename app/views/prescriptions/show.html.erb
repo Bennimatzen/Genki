@@ -28,15 +28,12 @@
           </div>
         </div>
 
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'prescription_id', @prescription.id %>
-          <%= submit_tag 'Purchase', class: 'btn btn-ghost' %>
-        <% end %>
-        <div id="map"
-          style="width: 100%; height: 40vh;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
+        <div class="container">
+          <%= simple_form_for @order do |f| %>
+            <%= f.association :pharmacy %>
+            <%= f.hidden_field :prescription_id, value: @prescription.id %>
+            <%= f.submit "Buy prescription", class: "btn btn-ghost" %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -3,18 +3,30 @@
     <div class="heading-color">
       <div class="conatainer mb-4">
         <h1>Placeholder for the Prescription</h1>
-
-<div id="map"
-      style="width: 100%; height: 40vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
-</div>
-
+        <div id="map"
+          style="width: 100%; height: 40vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <div class="container">
+          <% @pharmacies.each do |pharmacy| %>
+              <div class="container doc-card mb-3">
+                  <p class="pharmacy-name"><%= pharmacy.name %> </p>
+                  <p class="pharmacy-specialty"><%= pharmacy.address %></p>
+              </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+        <% if false %>
+        <%= form_tag pharmacy_orders_path do %>
+          <%= hidden_field_tag 'prescription_id', @prescription.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-ghost' %>
+        <% end %>
+        <% end %>
 
 
 

@@ -5,8 +5,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    prescription = Prescription.find(params[:prescription_id])
-    order = Order.create!(prescription: prescription, prescription_sku: prescription.sku, amount: prescription.price, state: 'pending', user: current_user)
+    prescription = Prescription.find(params[:order][:prescription_id])
+    pharmacy = Pharmacy.find(params[:order][:pharmacy_id])
+    order = Order.create!(prescription: prescription, prescription_sku: prescription.sku, amount: prescription.price, state: 'pending', user: current_user, pharmacy: pharmacy)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
