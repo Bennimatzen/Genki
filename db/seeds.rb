@@ -72,9 +72,9 @@ Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB, 
 Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London, Vereinigtes Königreich")
 
 puts "Creating prescriptions..."
-Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Repeats 1/2", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Tobramycin-300mg-1-2')
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Repeats 1/4", duration: 15, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Salbutamol-100mcg-1-4')
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Repeats 1/3", duration: 11, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Hypertonic-saline-4ml-1-3')
+Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Take every other day", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Tobramycin-300mg-1-2')
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Take every four days", duration: 15, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Salbutamol-100mcg-1-4')
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Take every three days", duration: 11, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Hypertonic-saline-4ml-1-3')
 Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: 43, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Creaon-1-c')
 
 puts "Creating chats..."
