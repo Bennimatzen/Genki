@@ -32,7 +32,7 @@ require("chart.js")
 import "bootstrap";
 import { initUserTabs } from '../pages/user/init_user_tabs';
 import { initSlider } from '../pages/user/init_slider';
-import { mapboxgl } from 'mapbox-gl';
+import mapboxgl  from 'mapbox-gl';
 import { initChatCable } from '../channels/chat_channel';
 
 // Internal imports, e.g:

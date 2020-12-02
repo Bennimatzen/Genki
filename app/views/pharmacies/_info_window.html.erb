@@ -1,0 +1,51 @@
+<div class="map-window">
+  <% if car.photos.attached? %>
+    <%#= cl_image_tag car.photos[0].key %>
+    <div class="map-window-infos">
+      <h4><%= pharmacy.name %> <%= pharmacy.address %></h4>
+      <!-- <p><%= car.address %></p> -->
+      <!-- <p>£<%= car.price.round %> per day</p> -->
+      <%#= link_to "More info", car_path(car), class: 'popup-button' %>
+    </div>
+  <% end %>
+</div>
+
+
+<style>
+  .map-window {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  display: flex;
+  align-items: center;
+  width: auto;
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.map-window img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.map-window h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.map-window p {
+  font-size: 10px;
+  line-height: 1;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+
+.map-window a {
+  font-size: 10px;
+  text-decoration: none;
+}
+</style>
