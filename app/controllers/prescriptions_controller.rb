@@ -1,5 +1,5 @@
 class PrescriptionsController < ApplicationController
-  before_action :set_user, only: [:show]
+  # before_action :set_user, only: [:show]
 
   def index
     @prescriptions = Prescription.all
@@ -35,6 +35,13 @@ class PrescriptionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @prescription = Prescription.find(params[:id])
+    @prescription.update(reminder: true)
+
+    redirect_to user_prescriptions_path(current_user)
   end
 
 private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_141013) do
+ActiveRecord::Schema.define(version: 2020_12_02_153148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_141013) do
     t.integer "price_cents", default: 0, null: false
     t.string "sku"
     t.integer "duration"
+    t.boolean "reminder", default: false
     t.index ["doctor_id"], name: "index_prescriptions_on_doctor_id"
     t.index ["user_id"], name: "index_prescriptions_on_user_id"
   end
