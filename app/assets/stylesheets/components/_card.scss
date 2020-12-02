@@ -11,13 +11,15 @@
 
 .prescription-card {
   width: 80%;
-  margin: 16px auto;
+  margin: 16px 0;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   border-radius: 16px;
   // text-align: center;
   font-size: 16px;
   // padding: 16px;
   background-color: white;
+  width: 100%;
+
 }
 
 .slider-card-graph {
@@ -51,12 +53,22 @@
   margin-bottom: 75px;
 }
 
-.doctor-card {
-} h4 {
-  position: relative;
-  bottom: 30px;
-  left: 50px;
-} p {
-  position: relative;
-  bottom: 25px;
+.summary-card {
+  color: black;
+  text-decoration: none;
+  width: 95%;
+  border: 2px #42A6CA solid;
+  border-radius: 50px;
+  align-content: center;
+  margin-bottom: 16px;
+}
+
+.unread-summary-card {
+  color: black;
+  text-decoration: none;
+  width: 95%;
+  border: 2px $primaryorange solid;
+  border-radius: 50px;
+  align-content: center;
+  margin-bottom: 16px;
 }

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
-  root to: 'users#profile'
+  root to: 'pages#home'
   resources :users, only: [:show, :edit, :update] do
 
     resources :appointments, only: [:index]
@@ -11,8 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/pages/calls" => "pages#calls"
+
  resources :users do
-    resources :prescriptions, only: [:index, :new, :create]
+    resources :prescriptions, only: [:index, :new, :create, :show]
   end #this may need adjusting
 
   resources :symptom_checks, only: [:new, :create]
@@ -25,7 +27,9 @@ Rails.application.routes.draw do
     resources :appointment_summaries, only: [:new, :create]
   end
 
-  resources :appointment_summaries, only: [:show]
+  resources :appointment_summaries, only: [:index, :show]
+
+  resources :pharmacies, only: [:show, :index]
 
   resources :diseases, only: [:new, :create] do
     resources :symptoms, only: [:index, :new, :create]
@@ -34,4 +38,10 @@ Rails.application.routes.draw do
   resources :chats, only: [:index, :show, :create, :destroy] do
     resources :messages, only: [:create]
   end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

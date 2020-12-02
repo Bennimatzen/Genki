@@ -4,4 +4,6 @@ class Prescription < ApplicationRecord
   validates :name, presence: true
   validates :dose, presence: true
   validates :frequency, presence: true
+
+  monetize :price_cents
 end

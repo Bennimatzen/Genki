@@ -1,6 +1,19 @@
 class PrescriptionsController < ApplicationController
+  before_action :set_user, only: [:show]
+
   def index
     @prescriptions = Prescription.all
+  end
+
+  def show
+    @prescription = Prescription.find(params[:id])
+    @pharmacies = Pharmacy.all
+    @markers = @pharmacies.geocoded.map do |pharmacy|
+      {
+        lat: pharmacy.latitude,
+        lng: pharmacy.longitude
+      }
+    end
   end
 
   def new
@@ -24,8 +37,11 @@ class PrescriptionsController < ApplicationController
 
 private
 
-  def prescription_params
-    params.require(:prescription).permit(:name, :dose, :frequency, :duration)
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
+  def prescription_params
+    params.require(:prescription).permit(:name, :dose, :frequency, :duration, :price, :sku)
+  end
 end

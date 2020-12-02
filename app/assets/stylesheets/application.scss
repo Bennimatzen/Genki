@@ -13,4 +13,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import 'mapbox-gl/dist/mapbox-gl';
 
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}

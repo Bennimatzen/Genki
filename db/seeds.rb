@@ -7,6 +7,7 @@ lucy_img = URI.open('https://kitt.lewagon.com/placeholder/users/lucyksilver')
 
 puts "Cleaning database...."
 
+Order.destroy_all
 Message.destroy_all
 Chat.destroy_all
 AppointmentSummary.destroy_all
@@ -17,6 +18,7 @@ SymptomCheck.destroy_all
 Symptom.destroy_all
 Disease.destroy_all
 User.destroy_all
+
 
 puts "Creating users..."
 
@@ -33,9 +35,9 @@ lucy = User.create!(email: "lucy@lewagon.com" , password: "secret", first_name: 
 lucy.photo.attach(io: lucy_img, filename: 'lucy.jpeg', content_type: 'image/jpeg')
 
 puts "Creating doctors"
-Doctor.create!(specialty: "Respiratory", description: "I am here to help you with anything related to your lung system.", user_id: arthur.id)
-Doctor.create!(specialty: "Physio", description: "I am here to help you with any physiological rehabilitation.", user_id: lucien.id)
-Doctor.create!(specialty: "GP", description: "I am here to help you with any minor illnesses.", user_id: lucy.id)
+dr_arthur = Doctor.create!(specialty: "Respiratory", description: "I am here to help you with anything related to your lung system.", user_id: arthur.id)
+dr_lucien = Doctor.create!(specialty: "Physio", description: "I am here to help you with any physiological rehabilitation.", user_id: lucien.id)
+dr_lucy = Doctor.create!(specialty: "GP", description: "I am here to help you with any minor illnesses.", user_id: lucy.id)
 
 puts "Creating diseases..."
 disease = Disease.create!(user: ellie, name: "Cystic Fibrosis")
@@ -54,15 +56,49 @@ SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, creat
 SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-19 19:08:00")
 SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-18 19:08:00")
 
+puts "Creating Pharmacies"
+Pharmacy.create(name:"Boots", address:"Black Chruch Lane")
+Pharmacy.create(name:"Lloyds Pharmacy", address:"138 Kingsland Rd, London E2 8DY")
+Pharmacy.create(name:"Superdrug", address:"22 Tudor St, London EC4Y 0AY, Vereinigtes Königreich")
+Pharmacy.create(name:"Asda Pharmacy", address:"83 Guilford St, Bloomsbury, London WC1N 1DD, Vereinigtes Königreich")
+Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB, Vereinigtes Königreich")
+Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London, Vereinigtes Königreich")
+
 puts "Creating prescriptions..."
-Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "twice daily", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "four times a day", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "once daily", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
-Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "with meals", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id)
+Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Repeats 1/2", duration: "28 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Tobramycin-300mg-1-2')
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Repeats 1/4", duration: "15 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Salbutamol-100mcg-1-4')
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Repeats 1/3", duration: "11 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Hypertonic-saline-4ml-1-3')
+Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: "43 days", doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Creaon-1-c')
+
+puts "Creating chats..."
+chat = Chat.create!(doctor: dr_arthur, user: ellie)
+
+puts "Creating messages..."
+Message.create!(chat: chat, user: ellie, content: "Hi doctor Littman, I have a really bad cough this week", unread: true)
+Message.create!(chat: chat, user: arthur, content: "Hi Ellie, let me call you and we can talk", unread: true)
+Message.create!(chat: chat, user: ellie, content: "okay", unread: true)
+Message.create!(chat: chat, user: arthur, content: "Okay Ellie, as we dicussed in the call I am going to prescribe you some antibiotics for 5 days. You will recieve the summary of the call shortly", unread: true)
+Message.create!(chat: chat, user: ellie, content: "Thank you!", unread: true)
+Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse in the coming days tell me asap", unread: true)
+
+puts "Creating appointments..."
+old_appointment1 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,9,15,9,0,0), end_date: DateTime.new(2020,9,15,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
+old_appointment2 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,10,5,9,0,0), end_date: DateTime.new(2020,10,5,10,0,0), record_share: true, user: ellie, doctor: dr_lucy)
+old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,11,8,10,0,0), record_share: true, user: ellie, doctor: dr_arthur)
+
+puts "Creating appointment summaries..."
+AppointmentSummary.create!(appointment: old_appointment1, content: "Summary1", plan: "Action Plan1")
+AppointmentSummary.create!(appointment: old_appointment2, content: "Summary2", plan: "Action Plan2")
+AppointmentSummary.create!(appointment: old_appointment3, content: "Summary3", plan: "Action Plan3")
 
 puts "Done! #{User.count} users created."
+puts "Done! #{Doctor.count} doctors created"
 puts "Done! #{Disease.count} diseases created."
 puts "Done! #{Symptom.count} symptoms created."
 puts "Done! #{SymptomCheck.count} symptom checks created."
 puts "Done! #{Prescription.count} prescriptions created."
+puts "Done! #{Chat.count} chats created."
+puts "Done! #{Message.count} messages created."
+puts "Done! #{Appointment.count} old appintments created."
+puts "Done! #{AppointmentSummary.count} appointment summaries created."
 
