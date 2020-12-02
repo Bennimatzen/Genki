@@ -6,6 +6,7 @@ class ChatsController < ApplicationController
   def show
     @chat = Chat.find(params[:id])
     @chat.messages.update_all(unread: false)
+    # @chat.messages = Chat.find(params[:id]).order(:created_at)
     @message = Message.new
   end
 
