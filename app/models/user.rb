@@ -53,6 +53,18 @@ class User < ApplicationRecord
     all_unread_summaries > 0
   end
 
+  def all_pill_reminder_notifications
+    total_reminders = prescriptions.where(reminder: true).count
+    done_reminders = 0
+    prescriptions.where(reminder: true).each do |reminder|
+      if DateTime.now < (reminder.created_at + reminder.duration.day) && reminder.prescription_check_today?
+        done_reminders += 1
+      end
+    end
+    total_notifications = total_reminders - done_reminders
+    return total_notifications
+  end
+
   def doctor?
     self.doctors.any?
   end
