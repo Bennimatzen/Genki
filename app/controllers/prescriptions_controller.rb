@@ -1,6 +1,20 @@
 class PrescriptionsController < ApplicationController
+  before_action :set_user, only: [:show]
+
   def index
     @prescriptions = Prescription.all
+  end
+
+  def show
+    @prescription = Prescription.find(params[:id])
+    @order = Order.new
+    @pharmacies = Pharmacy.all
+    @markers = @pharmacies.geocoded.map do |pharmacy|
+      {
+        lat: pharmacy.latitude,
+        lng: pharmacy.longitude
+      }
+    end
   end
 
   def new
@@ -16,6 +30,7 @@ class PrescriptionsController < ApplicationController
     @prescription.user = @user
 
     if @prescription.save
+      Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! Dr. #{@doctor.user.last_name.capitalize} gave you a new prescription.", unread: true)
       redirect_to user_prescriptions_path(current_user)
     else
       render :new
@@ -24,8 +39,11 @@ class PrescriptionsController < ApplicationController
 
 private
 
-  def prescription_params
-    params.require(:prescription).permit(:name, :dose, :frequency, :duration)
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
+  def prescription_params
+    params.require(:prescription).permit(:name, :dose, :frequency, :duration, :price, :sku)
+  end
 end

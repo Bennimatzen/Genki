@@ -6,4 +6,8 @@ class AppointmentSummary < ApplicationRecord
 
   validates :content, presence: true
   validates :plan, presence: true
+
+  def unread_summaries_count
+    AppointmentSummary.all.where(unread: true).count
+  end
 end

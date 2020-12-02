@@ -2,7 +2,7 @@
   background-color: rgb(246, 155, 150);
   background-image: asset-url(registerphoto1);
   background-size: contain;
-  height: calc(100vh - 130px) ;
+  height: calc(100vh) ;
   position: relative;
   text-align: center;
 }
@@ -47,7 +47,7 @@
   // width: 150%;
   width: 100%;
   object-fit: cover;
-  height: 400px;
+  height: 100%;
   // background-color: rgb(246, 155, 150);
 
  }

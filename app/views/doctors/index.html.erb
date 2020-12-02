@@ -1,15 +1,17 @@
-<div class="container header-profile m-3">
-  <h1>Pick a doctor for your appointment</h1>
+<div class="container mb-5">
+  <h3>Pick a doctor for your appointment</h3>
 </div>
 
-<div class="container mt-5 mb-3 ml-3 mr-3">
+<div class="container">
   <h5>Your registered doctors</h5>
 </div>
 
-<div class="container m-3">
-  <% @doctors.each do |doctor| %>
+<% @doctors.each do |doctor| %>
+  <% if doctor.user.last_name == "Genki" %>
+    <% next %>
+  <% else %>
     <%= link_to new_doctor_appointment_path(doctor) do %>
-      <div class="container doc-card mb-5">
+      <div class="container doc-card mb-3">
         <div>
           <p class="NHS-register"><b><i>NHS</i></b> doctor</p>
           <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
@@ -21,7 +23,7 @@
       </div>
     <% end %>
   <% end %>
-</div>
+<% end %>
 <br>
 <br>
 <br>
