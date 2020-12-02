@@ -14,12 +14,10 @@ Rails.application.routes.draw do
   get "/pages/calls" => "pages#calls"
 
  resources :users do
-    resources :prescriptions, only: [:index, :new, :create, :show] do
-      resources :prescription_checks, only: [:create]
-    end
+    resources :prescriptions, only: [:index, :new, :create, :show, :update]
   end #this may need adjusting
 
-  resources :prescription_checks, only: [:update]
+  resources :prescription_checks, only: [:create]
 
   resources :symptom_checks, only: [:new, :create]
   resources :appointments, only: [:destroy]
