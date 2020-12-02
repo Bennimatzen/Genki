@@ -40,6 +40,7 @@ class PrescriptionsController < ApplicationController
   def update
     @prescription = Prescription.find(params[:id])
     @prescription.update(reminder: true)
+    Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! you have set a daily reminder for your #{@prescription.name} prescription. Don't forget to take your meds!", unread: true)
 
     redirect_to user_prescriptions_path(current_user)
   end

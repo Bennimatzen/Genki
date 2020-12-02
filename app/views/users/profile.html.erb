@@ -26,8 +26,15 @@
       </div>
     <% end %>
   </button>
+
   <button class="btn user-tab tab" data-target="prescriptions">Prescriptions
+    <% if current_user.all_pill_reminder_notifications > 0 %>
+      <div class="notification">
+        <%= current_user.all_pill_reminder_notifications %>
+      </div>
+    <% end %>
   </button>
+
   <button class="btn user-tab tab" data-target="appointments">Appointments
     <% if @upcoming_appointments.count > 0 %>
       <div class="notification">
@@ -35,6 +42,7 @@
       </div>
     <% end %>
   </button>
+
 </div>
 
 <div class="user-ul active" id="symptoms">
@@ -62,7 +70,6 @@
 
 <div class="user-ul" id="prescriptions">
   <% Prescription.where(reminder: true).each do |prescription| %>
-    <%= prescription.name %>
     <% if DateTime.now < (prescription.created_at + prescription.duration.day)  %>
       <% if prescription.prescription_check_today? %>
         <div class="prescription_check">
