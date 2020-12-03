@@ -5,7 +5,7 @@ class SymptomChecksController < ApplicationController
 
   def create
     @user = current_user
-    @symptom = @user.symptoms.first
+    @symptom = @user.symptoms.first # Symptom.find(symptom_check_params[:sid]) when more than one symptom
     @symptom_check = SymptomCheck.new(symptom_check_params)
     @symptom_check.symptom = @symptom
     @symptom_check.user = @user
@@ -24,6 +24,6 @@ class SymptomChecksController < ApplicationController
   private
 
   def symptom_check_params
-    params.require(:symptom_check).permit(:rating, :description)
+    params.require(:symptom_check).permit(:rating, :description) # :sid when more than one symptom
   end
 end
