@@ -1,4 +1,13 @@
-<h3>Chat with Dr. <%= @chat.doctor.user.last_name %></h3>
+<div class="row justify-content-center mt-10">
+  <div class="col-11 mb-2 mt-3">
+    <div class="heading-color">
+      <div class="conatainer mb-4">
+        <h3>Chat with Dr. <%= @chat.doctor.user.last_name %></h3>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <div class="letter-center">
@@ -11,8 +20,10 @@
 
 <div class="chat-box">
   <%= simple_form_for [ @chat, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, placeholder: "Write a message" %>
-    <%= f.button :submit, "Send", class: "btn btn-primary" %>
+    <div class="chat-box-style">
+      <%= f.input :content, label: false, placeholder: "Write a message" %>
+    </div>
+    <%= f.button :submit, "Send", class: "btn btn-ghost" %>
   <% end %>
 </div>
 
@@ -21,11 +32,19 @@
   .chat-box {
     margin-top: 16px;
     margin-bottom: 75px;
+    width: 100%;
+    padding-right: 48px;
+    text-align: center;
+    align-items: center;
   }
 
   .btn {
     position: relative;
-    left: 16px;
+    left:24px;
   }
 
+  .chat-box-style {
+    padding-left: 8px;
+    width: 112%;
+  }
 </style>

@@ -31,7 +31,7 @@ class PrescriptionsController < ApplicationController
 
     if @prescription.save
       Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! Dr. #{@doctor.user.last_name.capitalize} gave you a new prescription.", unread: true)
-      redirect_to user_prescriptions_path(current_user)
+      redirect_to root_path
     else
       render :new
     end
@@ -42,7 +42,7 @@ class PrescriptionsController < ApplicationController
     @prescription.update(reminder: true)
     Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! you have set a daily reminder for your #{@prescription.name} prescription. Don't forget to take your meds!", unread: true)
 
-    redirect_to user_prescriptions_path(current_user)
+    redirect_to root_path
   end
 
 private
