@@ -1,7 +1,7 @@
 class PrescriptionChecksController < ApplicationController
   def create
     @user = current_user
-    @prescription = Prescription.find(params[:pid]) #PrescriptionCheck.all.first
+    @prescription = Prescription.find(params[:pid]) # PrescriptionCheck.all.first
     @prescription_check = PrescriptionCheck.new
 
     @prescription_check.prescription = @prescription

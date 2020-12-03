@@ -1,18 +1,18 @@
-<h2>Hi!</h2>
+<h3 style="padding-left: 16px;">Hi!</h3>
 
-<p style="margin-top: 32px;">This is your medical team:</p>
+<p style="margin-top: 16px; padding-left: 16px; padding-right: 8px; font-size: 20px;">This is your medical team:</p>
 
-<div class="container m-3">
+<div class="container" style="margin-bottom: 75px;">
   <% @doctors.each do |doctor| %>
 
       <% if doctor.user.last_name == "Genki" || doctor.user.last_name == "Qureshi" || doctor.user.last_name == "Bhaila" || doctor.user.last_name == "Matzen" || doctor.user.last_name == "Benitez" %>
         <% next %>
       <% else %>
-        <div class="container doc-card mb-5">
+        <div class="container doc-card mb-3">
           <div>
             <p class="NHS-register" style="margin-top: 20px; margin-bottom: 0px;"><b><i>NHS</i></b> doctor</p>
             <p class="doctor-name">Dr. <%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
-            <p class="doctor-specialty"><%= doctor.specialty %></p>
+            <p class="doctor-specialty">Specialty: <%= doctor.specialty %></p>
 
             <% if Chat.where(doctor: doctor, user: current_user).last %>
               <%= link_to "Resume a chat", chat_path(Chat.where(doctor: doctor, user: current_user).last) %>
@@ -20,7 +20,7 @@
               <%= link_to "Stat a chat", chats_path(doctor: doctor.id), method: :post%>
             <% end %>
 
-            <p style="margin-top:50px;"><%= link_to "Make an appointment", new_doctor_appointment_path(doctor) %> </p>
+            <p><%= link_to "Make an appointment", new_doctor_appointment_path(doctor) %> </p>
           </div>
           <div>
           <%= image_tag doctor.user.photo, class: "avatar dropdown-toggle" %>
