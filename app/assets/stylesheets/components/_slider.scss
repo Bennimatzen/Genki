@@ -2,7 +2,7 @@
   margin-top: 8px;
 }
 
-input[type=range] {
+.symptom_check_rating input[type=range] {
   height: 25px;
   -webkit-appearance: none;
   margin: 8px 0;
@@ -11,11 +11,11 @@ input[type=range] {
   border: none;
 }
 
-input[type=range]:focus {
+.symptom_check_rating input[type=range]:focus {
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+.symptom_check_rating input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 2px;
   cursor: pointer;
@@ -27,7 +27,7 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0px solid #000000;
 }
 
-input[type=range]::-webkit-slider-thumb {
+.symptom_check_rating input[type=range]::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px #000000;
   border: 1px solid $primaryblue;
   height: 16px;
@@ -40,11 +40,11 @@ input[type=range]::-webkit-slider-thumb {
   opacity: 1;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+.symptom_check_rating input[type=range]:focus::-webkit-slider-runnable-track {
   background: $primaryblue;
 }
 
-input[type=range]::-moz-range-track {
+.symptom_check_rating input[type=range]::-moz-range-track {
   width: 100%;
   height: 5px;
   cursor: pointer;
@@ -55,7 +55,7 @@ input[type=range]::-moz-range-track {
   border: 0px solid #000000;
 }
 
-input[type=range]::-moz-range-thumb {
+.symptom_check_rating input[type=range]::-moz-range-thumb {
   box-shadow: 0px 0px 0px #000000;
   border: 1px solid $primaryblue;
   height: 18px;
@@ -65,7 +65,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-input[type=range]::-ms-track {
+.symptom_check_rating input[type=range]::-ms-track {
   width: 100%;
   height: 5px;
   cursor: pointer;
@@ -75,21 +75,21 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
-input[type=range]::-ms-fill-lower {
+.symptom_check_rating input[type=range]::-ms-fill-lower {
   background: $primaryblue;
   border: 0px solid #000000;
   border-radius: 2px;
   box-shadow: 0px 0px 0px #000000;
 }
 
-input[type=range]::-ms-fill-upper {
+.symptom_check_rating input[type=range]::-ms-fill-upper {
   background: $primaryblue;
   border: 0px solid #000000;
   border-radius: 2px;
   box-shadow: 0px 0px 0px #000000;
 }
 
-input[type=range]::-ms-thumb {
+.symptom_check_rating input[type=range]::-ms-thumb {
   margin-top: 1px;
   box-shadow: 0px 0px 0px #000000;
   border: 1px solid $primaryblue;
@@ -100,10 +100,10 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
 }
 
-input[type=range]:focus::-ms-fill-lower {
+.symptom_check_rating input[type=range]:focus::-ms-fill-lower {
   background: $primaryblue;
 }
 
-input[type=range]:focus::-ms-fill-upper {
+.symptom_check_rating input[type=range]:focus::-ms-fill-upper {
   background: $primaryblue;
 }
