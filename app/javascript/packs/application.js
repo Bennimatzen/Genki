@@ -33,16 +33,27 @@ import "bootstrap";
 import { initUserTabs } from '../pages/user/init_user_tabs';
 import { initSlider } from '../pages/user/init_slider';
 // import { initChatCable } from '../channels/chat_channel';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 import mapboxgl  from 'mapbox-gl';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initUserTabs();
+  initSweetalert('#btn-reminder', {
+  title: "Success!",
+  text: "Your reminder has been successfully created.",
+  icon: "success",
+  button: "Great!",
+  closeOnEsc: true,
+  });
+
   const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
@@ -79,4 +90,5 @@ document.addEventListener('turbolinks:load', () => {
   initSlider();
   initUserTabs();
   // initChatCable();
+
 });

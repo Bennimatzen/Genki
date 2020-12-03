@@ -22,7 +22,7 @@
               <i class="fas fa-shopping-cart p-2"> </i>
             </div>
           <% end %>
-          <%= link_to user_prescription_path(current_user, prescription), class: "w-50", method: "patch" do %>
+          <%= link_to user_prescription_path(current_user, prescription), id: 'btn-reminder', class: "w-50", method: "patch" do %>
             <div class="set-reminder d-flex justify-content-between align-items-center">
               <p class="m-0 p-2"><small>Set a reminder</small></p>
               <i class="fas fa-bell p-2"></i>
