@@ -64,12 +64,12 @@ document.addEventListener('turbolinks:load', () => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 9, duration: 0 });
 };
 
-if (mapElement) {
-  // [ ... ]
-  fitMapToMarkers(map, markers);
-}
+  if (mapElement) {
+    // [ ... ]
+    fitMapToMarkers(map, markers);
   }
-};
+    }
+  };
   initMapbox()
 
   const symptomChart = document.getElementById("chart-1")

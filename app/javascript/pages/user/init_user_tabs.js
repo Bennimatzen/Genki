@@ -1,8 +1,8 @@
-const symptomsTab = document.querySelector("#symptoms")
-const prescriptionsTab = document.querySelector("#prescriptions")
-const appointmentsTab = document.querySelector("#appointments")
 
 const initUserTabs = () => {
+  const symptomsTab = document.querySelector("#symptoms")
+  const prescriptionsTab = document.querySelector("#prescriptions")
+  const appointmentsTab = document.querySelector("#appointments")
   const userTabsLinks = document.querySelectorAll(".user-tab")
   userTabsLinks.forEach((btn) => {
 
