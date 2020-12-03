@@ -1,0 +1,24 @@
+<h3 style="padding-left: 8px;">Thank you for joining us ❤️</h3>
+<p style="padding-left: 5px; padding-right: 5px; font-size: 22px;">This app was proudly made by the following Batch 473 Le Wagon Students:</p>
+
+<div class="container" style="margin-bottom: 64px;">
+  <% @doctors.each do |doctor| %>
+    <% if doctor.user.last_name == "Genki" || doctor.user.last_name == "Littman" || doctor.user.last_name == "George" || doctor.user.last_name == "Silver" %>
+      <% next %>
+    <% else %>
+      <div class="container genki-card">
+        <div class="first-div">
+          <%= image_tag doctor.user.photo, class: "avatar-large" %>
+          <p class="genki-name"><%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
+        </div>
+        <div class="second-div">
+          <p class="genki-specialty">
+            <strong>Specialty:</strong>
+            <em><%= doctor.specialty %></em>
+          </p>
+          <p class="genki-description"><%= doctor.description %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

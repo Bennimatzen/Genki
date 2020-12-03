@@ -5,7 +5,7 @@
 <div class="container m-3">
   <% @doctors.each do |doctor| %>
 
-      <% if doctor.user.last_name == "Genki" %>
+      <% if doctor.user.last_name == "Genki" || doctor.user.last_name == "Qureshi" || doctor.user.last_name == "Bhaila" || doctor.user.last_name == "Matzen" || doctor.user.last_name == "Benitez" %>
         <% next %>
       <% else %>
         <div class="container doc-card mb-5">
