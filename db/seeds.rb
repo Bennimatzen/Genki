@@ -95,7 +95,8 @@ Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB, 
 Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London, Vereinigtes Königreich")
 
 puts "Creating prescriptions..."
-Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Twice daily", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Tobramycin-300mg-1-2')
+Prescription.create!(name: "Doxycycline", dose: "200mg", frequency: "Once daily", duration: 14, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Doxycycline-200mg-1-2')
+Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Twice daily", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Tobramycin-300mg-1-2', created_at: "2020-11-24 19:08:00")
 Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Four times daily", duration: 15, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Salbutamol-100mcg-1-4', created_at: "2020-11-24 19:08:00")
 Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Once daily", duration: 11, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Hypertonic-saline-4ml-1-3', created_at: "2020-11-24 19:08:00")
 Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: 43, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Creaon-1-c', created_at: "2020-11-24 19:08:00")
