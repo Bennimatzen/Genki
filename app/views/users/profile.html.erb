@@ -19,7 +19,6 @@
 
 <div class="d-flex justify-content-around">
   <button class="btn user-tab tab" data-target="symptoms">Symptoms
-
     <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
       <div class="notification">
         <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
@@ -60,7 +59,6 @@
   </div>
     <% end %>
 
-
   <div class="dashboard-card" id="symptom-chart">
     <h5>History</h5>
     <%= line_chart @sliced, ytitle: "Severity", height: "200px", colors: ["#0da4c8", "#0da4c8"], showLines: 'false',
@@ -84,11 +82,8 @@
           <%= link_to "Mark done", prescription_checks_path(pid: prescription.id), method: "post" %>
         </div>
       <% end %>
-
     <% end %>
-
   <% end %>
-
 </div>
 
 <div class="user-ul" id="appointments">
