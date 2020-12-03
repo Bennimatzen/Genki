@@ -39,22 +39,22 @@
       </div>
     </div>
   </div>
-
-  <div class="container record-share">
-    <div class="app-card-4">
+  <br>
+  <div class="dashboard-card record-share">
+    <div class="app-card-4 text-left">
         <%= simple_form_for [ @doctor, @appointment ] do |f| %>
           <%= f.input :record_share,
           wrapper: :custom_boolean_switch %>
         <% end %>
     </div>
   </div>
-
   <br>
   <div class="container">
      <%= link_to "My appointments", user_appointments_path(current_user), class: "btn btn-ghost"  %>
   </div>
-    <div class="container">
-     <%= link_to "Appointment Summary", user_appointments_path(current_user), class: "btn btn-ghost"  %>
-  </div>
+  <br>
 </div>
+<br>
+<br>
+<br>
 
