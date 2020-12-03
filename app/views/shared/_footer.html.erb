@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="footer">
-    <%= link_to profile_users_path do  %>
+    <%= link_to profile_users_path, data: {turbolinks: false} do  %>
       <i class="fas fa-home"></i>
     <% end %>
     <%= link_to user_appointments_path(current_user) do  %>
