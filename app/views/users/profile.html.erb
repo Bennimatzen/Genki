@@ -19,7 +19,6 @@
 
 <div class="d-flex justify-content-around">
   <button class="btn user-tab tab" data-target="symptoms">Symptoms
-
     <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
       <div class="notification">
         <%= current_user.symptoms.count - (SymptomCheck.where(user: current_user, created_at: Date.today.to_datetime)).count %>
@@ -47,7 +46,7 @@
 
 <div class="user-ul active" id="symptoms">
   <div class="dashboard-card">
-    <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today # this is not working properly %>
+    <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
       <%= simple_form_for @symptom_check do |f| %>
         <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 5, id: 'rating-slider' }, required: false %>
         <p id='slider-text'>Same as usual</p>
@@ -57,9 +56,8 @@
       <div class="completing-message">
         <h6>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name.downcase %> today 👏</h6>
       </div>
-  </div>
     <% end %>
-
+  </div>
 
   <div class="dashboard-card" id="symptom-chart">
     <h5>History</h5>
@@ -84,11 +82,8 @@
           <%= link_to "Mark done", prescription_checks_path(pid: prescription.id), method: "post" %>
         </div>
       <% end %>
-
     <% end %>
-
   <% end %>
-
 </div>
 
 <div class="user-ul" id="appointments">
@@ -115,7 +110,7 @@
         </div>
         <div class="text-center pl-3">
           <h6>Time</h6>
-            <%= appointment.start_date.strftime("%l %M %p") %>
+          <%= appointment.start_date.strftime("%l %M %p") %>
         </div>
       </div>
       <div class="appointment-card-4">
