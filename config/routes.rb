@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get "/pages/calls" => "pages#calls"
+  get "/pages/about" => "pages#about"
 
  resources :users do
     resources :prescriptions, only: [:index, :new, :create, :show, :update]

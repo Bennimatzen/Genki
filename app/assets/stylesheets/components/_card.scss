@@ -71,3 +71,53 @@
   align-content: center;
   margin-bottom: 16px;
 }
+
+.genki-card {
+  border: 2px $primaryorange solid;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.first-div {
+  height: 65px;
+}
+
+.first-div img {
+  position: relative;
+  top: 5px;
+}
+
+.genki-name {
+  position: relative;
+  bottom: 40px;
+  left: 75px;
+  font-size: 20px;
+  width: 200px;
+}
+
+.genki-name p {
+  margin: 0px;
+  padding: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.second-div {
+
+}
+
+.genki-specialty {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.genki-description {
+  font-size: 18px;
+}
+
+
+
+
+
+
+
