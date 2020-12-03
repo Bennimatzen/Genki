@@ -12,13 +12,10 @@
   width: 90%;
   margin: 8px auto;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  border: 2px $primaryorange solid;
   border-radius: 16px;
   text-align: center;
   font-size: 16px;
-  padding: 16px;
   background-color: white;
-  margin-top: 24px;
 }
 
 .prescription-card {
@@ -131,9 +128,24 @@
   font-size: 18px;
 }
 
+.prescription-check-card {
+  width: 90%;
+  margin: 8px auto;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  text-align: center;
+  font-size: 16px;
+  background-color: white;
 
+}
 
-
+.prescription-check-card .btn {
+  background-color: white;
+  border: 1px $primaryblue solid;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  color: $primaryblue;
+}
 
 
 

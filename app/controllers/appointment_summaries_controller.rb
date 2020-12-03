@@ -13,8 +13,8 @@ def create
   @appointment_summary = AppointmentSummary.new(appointment_summary_params)
   @appointment_summary.appointment = @appointment
   if @appointment_summary.save
-    Message.create!(chat: current_user.chats.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! Dr. #{@appointment.doctor.user.last_name} has sent you a new appointment letter. Make sure to complete your action plan!.", unread: true)
-    redirect_to root_path
+    Message.create!(chat: Chat.all.first, user: current_user, content: "Hi #{current_user.first_name.capitalize}! Dr. #{@appointment.doctor.user.last_name} has sent you a new appointment letter. Make sure to complete your action plan!.", unread: true)
+    redirect_to doctor_path(@appointment.doctor)
   else
     render :new
   end
