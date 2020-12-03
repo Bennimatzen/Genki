@@ -54,7 +54,9 @@
         <%= f.button :submit, value: 'Submit', class: 'btn-ghost-small' %>
       <% end %>
     <% else %>
-      <h5>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name.downcase %> today 👏</h5>
+      <div class="completing-message"></div>
+        <h6>Well done! You have done your check for <%= SymptomCheck.where(user: current_user).last.symptom.name.downcase %> today 👏</h6>
+      </div>
     <% end %>
   </div>
 
@@ -123,5 +125,11 @@
   <% end %>
 </div>
 
-
+<style>
+  .completing-message {
+    font-size: small;
+    margin-top: 16px;
+    border-radius: 4px;
+  }
+</style>
 
