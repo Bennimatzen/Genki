@@ -1,17 +1,5 @@
-<div class="row justify-content-center mt-10">
-  <div class="col-11 mb-2 mt-3">
-    <div class="heading-color">
-      <div class="conatainer mb-3">
-        <h3>Notifications for you,  <%= current_user.first_name.capitalize %>:</h3>
-      </div>
-    </div>
-  </div>
-</div>
+<h3 class="container mb-5">Hi,  <%= current_user.first_name.capitalize %> here are your appointment letters:</h3>
 
-  <div class="cut">
-  ____________________________________________
-  </div>
-<br>
 <% if @appointment_summaries.count > 0 %>
   <% @appointment_summaries.each do |summary| %>
     <% if summary.unread %>
