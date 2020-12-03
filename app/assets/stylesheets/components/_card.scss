@@ -54,23 +54,25 @@
 .summary-card {
   color: black;
   text-decoration: none;
-  width: 95%;
+  width: 92%;
   border: 2px #42A6CA solid;
   border-radius: 50px;
   align-content: center;
   margin-bottom: 16px;
   margin-left: 16px;
+
 }
 
 .unread-summary-card {
   color: black;
   text-decoration: none;
-  width: 95%;
+  width: 92%;
   border: 2px $primaryorange solid;
   border-radius: 50px;
   align-content: center;
   margin-bottom: 16px;
-  margin-left: 8px;
+  margin-left: 16px;
+
 }
 
 .genki-card {

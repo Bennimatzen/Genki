@@ -1,26 +1,18 @@
-<div class="row justify-content-center mt-10">
-  <div class="col-11 mb-2 mt-3">
-    <div class="heading-color">
-      <div class="conatainer mb-4">
 <h3>Chat with Dr. <%= @chat.doctor.user.last_name %></h3>
-</div>
-</div>
-</div>
-</div>
+
+
 <div class="letter-center">
-<div class="chat" id="messages" data-chat-id="<%= @chat.id %>">
-  <% @chat.messages.order('created_at').each do |message| %>
-
+  <div class="chat" id="messages" data-chat-id="<%= @chat.id %>">
+    <% @chat.messages.order('created_at').each do |message| %>
     <%= render "messages/message", message: message %>
-
   <% end %>
-</div>
+  </div>
 </div>
 
-  <div class="chat-box">
+<div class="chat-box">
   <%= simple_form_for [ @chat, @message ], remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "Write a message" %>
-    <%= f.button :submit, "Send", class: "btn btn-ghost-center" %>
+    <%= f.button :submit, "Send", class: "btn btn-primary" %>
   <% end %>
 </div>
 
@@ -28,29 +20,12 @@
 <style>
   .chat-box {
     margin-top: 16px;
-    /*border-radius: 10px;*/
-    /*width: 95%;*/
-    /*align-items: center;*/
-    margin-left: 16px;
+    margin-bottom: 75px;
   }
 
-  .btn-ghost-center {
-    color: white;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  // opacity: 0.6;
-  transition: opacity 0.3s ease;
-  width: 100%;
-  text-align: center;
-  background-color: rgb(5, 80, 251);
-  font: white;
-  /*margin-left: 16px;*/
+  .btn {
+    position: relative;
+    left: 16px;
   }
 
-  .letter-center {
-    width: 100%;
-    margin-left: 8px;
-  }
 </style>
