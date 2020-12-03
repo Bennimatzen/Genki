@@ -1,7 +1,16 @@
-<h1>Hi! <%= current_user.first_name.capitalize %></h1>
-<h5>These are all your active chats:</h5>
+<div class="row justify-content-center mt-10">
+  <div class="col-11 mb-2 mt-3">
+    <div class="heading-color">
+      <div class="conatainer mb-3">
 
-<br>
+
+<h3>Hi! <%= current_user.first_name.capitalize %></h3>
+<h5>These are your active chats:</h5>
+</div>
+    </div>
+  </div>
+</div>
+
 
 
 <% @chats.each do |chat| %>

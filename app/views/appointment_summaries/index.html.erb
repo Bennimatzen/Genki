@@ -1,15 +1,17 @@
 <div class="row justify-content-center mt-10">
   <div class="col-11 mb-2 mt-3">
     <div class="heading-color">
-      <div class="conatainer mb-4">
-<h3>Hi,  <%= current_user.first_name.capitalize %> here are your appointment letters:</h3>
+      <div class="conatainer mb-3">
+        <h3>Notifications for you,  <%= current_user.first_name.capitalize %>:</h3>
       </div>
     </div>
   </div>
 </div>
 
+  <div class="cut">
+  ____________________________________________
+  </div>
 <br>
-
 <% if @appointment_summaries.count > 0 %>
   <% @appointment_summaries.each do |summary| %>
     <% if summary.unread %>
@@ -31,3 +33,17 @@
     <% end %>
   <% end %>
 <% end %>
+
+  <div class="cut">
+    ____________________________________________
+  </div>
+
+<style>
+.cut {
+  width: 100%;
+  color: lightgrey;
+  padding: 1px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+</style>
