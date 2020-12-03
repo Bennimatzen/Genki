@@ -53,15 +53,15 @@ puts "Creating symptoms..."
 symptom = Symptom.create!(disease: Disease.all.sample, name: "Cough")
 
 puts "Creating symptom checks..."
-SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-26 19:08:00")
-SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-25 19:08:00")
-SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-24 19:08:00")
-SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-23 19:08:00")
-SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-22 19:08:00")
-SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-21 19:08:00")
-SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-20 19:08:00")
-SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-19 19:08:00")
-SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-18 19:08:00")
+SymptomCheck.create!(rating: 3, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-12-02 19:08:00")
+SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-12-01 19:08:00")
+SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-30 19:08:00")
+SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-29 19:08:00")
+SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-28 19:08:00")
+SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-27 19:08:00")
+SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-26 19:08:00")
+SymptomCheck.create!(rating: 2, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-25 19:08:00")
+SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, created_at: "2020-11-24 19:08:00")
 
 puts "Creating Pharmacies"
 Pharmacy.create(name:"Boots", address:"Black Chruch Lane")
@@ -72,10 +72,10 @@ Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB, 
 Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London, Vereinigtes Königreich")
 
 puts "Creating prescriptions..."
-Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Take every other day", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Tobramycin-300mg-1-2')
-Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Take every four days", duration: 15, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Salbutamol-100mcg-1-4')
-Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Take every three days", duration: 11, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Hypertonic-saline-4ml-1-3')
-Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: 43, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 5, sku: 'Creaon-1-c')
+Prescription.create!(name: "Tobramycin", dose: "300mg", frequency: "Twice daily", duration: 28, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Tobramycin-300mg-1-2')
+Prescription.create!(name: "Salbutamol", dose: "100mcg", frequency: "Four times daily", duration: 15, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Salbutamol-100mcg-1-4')
+Prescription.create!(name: "Hypertonic saline", dose: "4ml", frequency: "Once daily", duration: 11, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Hypertonic-saline-4ml-1-3')
+Prescription.create!(name: "Creon", dose: "1-2 capsules", frequency: "With every meal", duration: 43, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Creaon-1-c')
 
 puts "Creating chats..."
 chat = Chat.create!(doctor: dr_arthur, user: ellie)
@@ -99,11 +99,11 @@ AppointmentSummary.create!(appointment: old_appointment1, content: "- Symptoms o
                                                                     plan: "
                                                                     - Follow one course of Amoxicillin.
                                                                     - Drink lots of water and get lots of rest.
-                                                                    - If you do not feel better after one week book a dollow up appointment with a GP", unread: false)
+                                                                    - If you do not feel better after one week book a follow up appointment with a GP", unread: false)
 AppointmentSummary.create!(appointment: old_appointment2, content: "- Persistent issues with lower back pain.
                                                                     - Brought on when working on a desk for long periods.",
                                                                     plan: "
-                                                                    - Decision to put on a low card diet to bring BMI which is above 25 down near to 20.
+                                                                    - Decision to put on a low carb diet to bring BMI which is above 25 down near to 20.
                                                                     - Try to lower in take of carbs, especially at dinner times.
                                                                     - When working take a short break after 30 mins and regularly do stretches shown during session.", unread: false)
 AppointmentSummary.create!(appointment: old_appointment3, content: "- Blood pressure and adherence are regular. Repeat prescription renewed.",
