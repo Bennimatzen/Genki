@@ -1,40 +1,44 @@
-<div class="color1">
-  <div class="row justify-content-center mt-10">
-    <div class="col-11 mb-2 mt-3">
-      <div class="heading-color">
-        <div class="conatainer mb-4">
-          <h2> <%= @prescription.name %></h2>
-        </div>
+<h3 class="container mb-5">Order <%= @prescription.name.downcase %></h3>
+<h5 class="container mb-3">Please review and complete details for order</h5>
+
+
+  <div class="dashboard-card">
+    <div class="text-left p-2 m-0 border-bottom">
+      <div class="">
+        <p class="order-category m-0">Prescription holder</p>
+        <p class="text-left m-0 orange-text"> For <%= @prescription.user.first_name %> <%= @prescription.user.last_name %> </p>
       </div>
+    </div>
+    <div class="text-left p-2 m-0 border-bottom">
+      <div class="">
+        <p class="order-category m-0">Order</p>
+        <p class="text-left m-0"> 1 x <%= @prescription.name %> <%= @prescription.dose %></p>
+      </div>
+    </div >
+    <div class="text-left p-2 mb-4 mx-0 mt-0 ">
+      <p class="m-0 order-category">Price</p>
+      <p class="text-left m-0"> <%= humanized_money_with_symbol(@prescription.price)%>.00 </p>
+    </div>
+  </div>
+  <div class="dashboard-card">
+    <div class="p-2 text-left d-flex justify-content-between">
+      <p class="p-1 m-0">Collection</p>
+      <p class="p-1 m-0">Free</p>
+    </div>
+  </div>
+  <br>
 
-      <div class="prescription-card-container">
-        <div class="prescription-card">
-          <div class="topcard">
-            <%= @prescription.frequency %>
-          </div>
-          <div class="middlecard">
-            <div>
-              <%= @prescription.name %>
-              <div>
-                <b><%= @prescription.dose %></b>
-              </div>
-            </div>
-          </div>
-          <div class="middlecard">
-            <%= @prescription.duration %> days
-          </div>
-          <div class="bottomcard">
-            <p>Amount: <%= humanized_money_with_symbol(@prescription.price) %></p>
-          </div>
-        </div>
-
-        <div class="container">
-          <%= simple_form_for @order do |f| %>
-            <%= f.association :pharmacy %>
-            <%= f.hidden_field :prescription_id, value: @prescription.id %>
-            <%= f.submit "Buy prescription", class: "btn btn-ghost" %>
-          <% end %>
-        </div>
+  <div class="container p-3 mb-5">
+    <%= simple_form_for @order do |f| %>
+      <%= f.association :pharmacy,
+                        label: "Select pharmacy for collection",
+                        as: :radio_buttons,
+                        input_html: { class: "tag-selector" },
+                        item_wrapper_class: 'tag-item' %>
+      <%= f.hidden_field :prescription_id, value: @prescription.id %>
+      <%= f.submit "Buy prescription", class: "btn btn-ghost" %>
+    <% end %>
+  </div>
       </div>
     </div>
   </div>
