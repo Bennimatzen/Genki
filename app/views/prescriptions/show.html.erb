@@ -29,13 +29,14 @@
   <br>
 
   <div class="container p-3 mb-5">
-    <%= simple_form_for @order do |f| %>
+    <%= simple_form_for @order, wrapper: :horizontal_form,
+                        wrapper_mappings: {
+                        radio_buttons: :horizontal_collection } do |f| %>
       <%= f.association :pharmacy,
                         label: "Select pharmacy for collection",
                         as: :radio_buttons,
-                        input_html: { class: "form-check-label" },
-                        item_wrapper_class: 'form-check'
-                        %>
+                        input_html: { class: "tag-selector" },
+                        item_wrapper_class: 'tag-item'%>
       <%= f.hidden_field :prescription_id, value: @prescription.id %>
       <%= f.submit "Buy prescription", class: "btn btn-ghost" %>
     <% end %>

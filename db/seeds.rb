@@ -14,6 +14,7 @@ pepe_img = URI.open('https://avatars3.githubusercontent.com/u/64612007?v=4')
 puts "Cleaning database..."
 
 PrescriptionCheck.destroy_all
+Pharmacy.destroy_all
 Order.destroy_all
 Message.destroy_all
 Chat.destroy_all

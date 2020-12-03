@@ -30,14 +30,14 @@
   font-size: 0.7rem !important;
   border-radius: 50rem !important;
   padding: 0.1rem 0.5rem !important;
-  background-color: #ECEAFF !important;
-  color: #7E73FF !important;
-  border: 1px solid #7E73FF !important;
+  background-color: $buttonblue !important;
+  color: white !important;
+  border: 1px solid $buttonblue !important;
   margin-right: 0.6rem !important;
   margin-bottom: 0.4rem !important;
 }
 
 .tag-selector:checked + label {
-  background-color: #7E73FF !important;
+  background-color: $primaryorange !important;
   color: white;
 }
