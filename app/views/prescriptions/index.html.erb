@@ -1,37 +1,37 @@
 <h3 class="container mb-5">Manage your prescriptions</h3>
 <h5 class="container mb-3">Active prescriptions</h5>
 
-  <% @prescriptions.each do |prescription| %>
-    <div class="dashboard-card">
-        <div class="text-left p-2 m-0 border-bottom">
-          <div>
-            <h4><%= prescription.name %></h4>
-            <p class="text-left m-0"> <b class="orange-text"><%= prescription.dose %></b> <%= prescription.frequency.downcase %></p>
-          </div>
+<% @prescriptions.each do |prescription| %>
+  <div class="dashboard-card">
+      <div class="text-left p-2 m-0 border-bottom">
+        <div>
+          <h4><%= prescription.name %></h4>
+          <p class="text-left m-0"> <b class="orange-text"><%= prescription.dose %></b> <%= prescription.frequency.downcase %></p>
         </div>
-        <div class="text-left p-2 m-0 border-bottom">
-          <p class="m-0 appointment-summary">Usage</p>
-          <%= prescription.duration %> days
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="p-2 flex-fill buy-now">
-            <p class="m-0 pb-2">Buy now</p>
-            <%= link_to user_prescription_path(current_user, prescription) do %>
-              <i class="fas fa-shopping-cart"> </i>
-            <% end %>
+      </div>
+      <div class="text-left p-2 m-0 border-bottom">
+        <p class="m-0 appointment-summary">Usage</p>
+        <%= prescription.duration %> days
+      </div>
+      <div class="d-flex flex-row align-items-center">
+        <%= link_to user_prescription_path(current_user, prescription), class: "flex-fill" do %>
+          <div class="buy-now d-flex justify-content-between align-items-center">
+            <p class="m-0 p-2"><small>Buy now</small></p>
+            <i class="fas fa-shopping-cart p-2"> </i>
           </div>
-          <div class="p-2 w-50 set-reminder">
-            <p class="m-0 pb-2">Set a reminder</p>
-            <%= link_to user_prescription_path(current_user, prescription), method: "patch" do %>
-              <i class="fas fa-bell"></i>
-            <% end %>
+        <% end %>
+        <%= link_to user_prescription_path(current_user, prescription), class: "w-50", method: "patch" do %>
+          <div class="set-reminder d-flex justify-content-between align-items-center">
+            <p class="m-0 p-2"><small>Set a reminder</small></p>
+            <i class="fas fa-bell p-2"></i>
           </div>
-        </div>
-    </div>
-  <% end %>
-  <br>
-  <br>
-  <br>
+        <% end %>
+      </div>
+  </div>
+<% end %>
+<br>
+<br>
+<br>
 
 link_to user_prescription_path(current_user, prescription) do  %>
 

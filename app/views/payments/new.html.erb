@@ -1,24 +1,76 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
+<h3 class="container mb-5">Check out summary</h3>
+<h5 class="container mb-3">Order details</h5>
 
-      <h3>Checkout summary</h3>
-
-      <p>Purchase of <strong><%= @order.prescription.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-ghost mt-5">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
-          });
-        });
-      </script>
+<div class="dashboard-card">
+  <div class="text-left p-2 m-0 border-bottom">
+    <div class="">
+      <p class="order-category m-0 appointment-summary">Prescription holder</p>
+      <p class="text-left m-0 orange-text"> For <%= @prescription.user.first_name %> <%= @prescription.user.last_name %> </p>
+    </div>
+  </div>
+  <div class="text-left p-2 m-0 border-bottom">
+    <div class="">
+      <p class="order-category m-0 appointment-summary">Pharmacy</p>
+      <p class="text-left m-0"><%= @pharmacy.name %></p>
+    </div>
+  </div>
+  <div class="text-left p-2 m-0 border-bottom">
+    <div class="">
+      <p class="order-category m-0 appointment-summary">Address for collection</p>
+      <p class="text-left m-0"><%= @pharmacy.address %></p>
+    </div>
+  </div>
+  <div class="text-left p-2 m-0 border-bottom">
+    <div class="">
+      <p class="order-category m-0 appointment-summary">Order</p>
+      <p class="text-left m-0"> 1 x <%= @prescription.name %> <%= @prescription.dose %></p>
+    </div>
+  </div >
+  <div class="text-left p-2 m-0 ">
+    <p class="m-0 order-category appointment-summary">Price</p>
+    <p class="text-left m-0"> <%= humanized_money_with_symbol(@prescription.price)%>.00 </p>
+  </div>
+</div>
+<div class="dashboard-card">
+  <div class="p-2 m-0 text-left d-flex justify-content-between">
+    <p class="p-1 m-0">Collection</p>
+    <p class="p-1 m-0">Free</p>
+  </div>
+</div>
+<div class="dashboard-card">
+  <div class="text-left p-2 m-0 border-bottom d-flex justify-content-between align-items-center">
+    <div class="">
+      <p class="order-category m-0 appointment-summary">Pay with</p>
+      <p class="text-left m-0"> Online payment</p>
+    </div>
+    <div>
+      <p class="text-left m-0 orange-text"> Change </p>
+    </div>
+  </div>
+  <div class="text-left m-0 border-bottom">
+    <div class="p-2 text-left d-flex justify-content-between">
+      <p class="p-1 m-0">Total to pay</p>
+      <p class="p-1 m-0"><%= humanized_money_with_symbol(@prescription.price)%>.00</p>
     </div>
   </div>
 </div>
+
+<div class="container">
+  <button id="pay" class="btn btn-ghost">Pay</button>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const paymentButton = document.getElementById('pay');
+    paymentButton.addEventListener('click', () => {
+      const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+      stripe.redirectToCheckout({
+        sessionId: '<%= @order.checkout_session_id %>'
+      });
+    });
+  </script>
+</div>
+<br>
+<br>
+<br>
 
 <style>
   .header-color {

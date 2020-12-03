@@ -5,18 +5,18 @@
   <div class="dashboard-card">
     <div class="text-left p-2 m-0 border-bottom">
       <div class="">
-        <p class="order-category m-0">Prescription holder</p>
+        <p class="order-category m-0 appointment-summary">Prescription holder</p>
         <p class="text-left m-0 orange-text"> For <%= @prescription.user.first_name %> <%= @prescription.user.last_name %> </p>
       </div>
     </div>
     <div class="text-left p-2 m-0 border-bottom">
       <div class="">
-        <p class="order-category m-0">Order</p>
+        <p class="order-category m-0 appointment-summary">Order</p>
         <p class="text-left m-0"> 1 x <%= @prescription.name %> <%= @prescription.dose %></p>
       </div>
     </div >
     <div class="text-left p-2 mb-4 mx-0 mt-0 ">
-      <p class="m-0 order-category">Price</p>
+      <p class="m-0 order-category appointment-summary">Price</p>
       <p class="text-left m-0"> <%= humanized_money_with_symbol(@prescription.price)%>.00 </p>
     </div>
   </div>
@@ -33,8 +33,9 @@
       <%= f.association :pharmacy,
                         label: "Select pharmacy for collection",
                         as: :radio_buttons,
-                        input_html: { class: "tag-selector" },
-                        item_wrapper_class: 'tag-item' %>
+                        input_html: { class: "form-check-label" },
+                        item_wrapper_class: 'form-check'
+                        %>
       <%= f.hidden_field :prescription_id, value: @prescription.id %>
       <%= f.submit "Buy prescription", class: "btn btn-ghost" %>
     <% end %>
@@ -43,57 +44,3 @@
     </div>
   </div>
 </div>
-
-<style>
-.prescription-card .topcard {
-  border: 1px solid lightgrey;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border-bottom: none;
-  padding-left: 16px;
-  /*margin-top: 12px;
-  padding-top: 8px;*/
-  height: 48px;
-  font-weight: bolder;
-  display: flex;
-  align-items: center;
-
-}
-
-#map {
-  margin-top: 16px;
-}
-
-.prescription-card .bottomcard {
-  border: 1px solid lightgrey;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  border-top: none;
-  padding-left: 16px;
-  /*margin-top: 12px;
-  padding-bottom: 12px;*/
-  height: 48px;
-  display: flex;
-  align-items: center;
-  color: white;
-  background-color: rgb(255, 101, 30);
-  text-align: middle;
-}
-
-.prescription-card-container {
-  margin: 0 auto;
-}
-
-.prescription-card .middlecard {
-  border: 1px solid lightgrey;
-  padding-left: 16px;
-/*  margin-top: 12px;
-  padding-top: 16px;*/
-  height: 96px;
-  font-weight: bolder;
-  display: flex;
-  align-items: center;
-  /*flex-direction: column;*/
-  justify-content: flex-start;
-}
-</style>
