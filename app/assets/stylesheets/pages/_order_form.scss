@@ -40,4 +40,5 @@
 .tag-selector:checked + label {
   background-color: $primaryorange !important;
   color: white;
+  border: 1px solid $primaryorange !important;
 }
