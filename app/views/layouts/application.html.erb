@@ -24,17 +24,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
     <%= favicon_link_tag %>
 
   </head>
 
   <body>
-    <% if turbolinks_blacklist_array.include?("#{params[:controller]}/#{params[:action]}") %>
-      <% 'data-turbolinks="false"'.html_safe %>
-    <% end %>
+
     <div class="page-container">
       <div class="navbar-container">
         <% if current_user %>
