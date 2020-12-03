@@ -34,10 +34,15 @@
 .chats {
   color: black;
   text-decoration: none;
-  width: 95%;
+  width: 93%;
   border: 2px #42A6CA solid;
   border-radius: 50px;
   align-content: center;
+  margin: 16px;
+
+
+
+
 }
 
 .chats span {
@@ -46,6 +51,7 @@
   color: #42A6CA;
   width: 95%;
 }
+
 
 .chats img {
   position: relative;
@@ -63,10 +69,13 @@
 .unread-chats {
   color: black;
   text-decoration: none;
-  width: 95%;
+  width: 93%;
   border: 2px $primaryorange solid;
   border-radius: 50px;
   align-content: center;
+  margin: 16px;
+
+
 }
 
 .unread-chats span {
