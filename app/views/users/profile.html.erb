@@ -73,13 +73,14 @@
   <% Prescription.where(reminder: true).each do |prescription| %>
     <% if DateTime.now < (prescription.created_at + prescription.duration.day)  %>
       <% if prescription.prescription_check_today? %>
-        <div class="prescription_check">
+        <div class="prescription-check-card">
           <p>Well done! You took your <%= prescription.name %> prescription today</p>
         </div>
       <% else %>
-        <div class="prescription_check">
-          <p>You have to take your <%= prescription.name %> prescription today, <%= prescription.frequency %></p>
-          <%= link_to "Mark done", prescription_checks_path(pid: prescription.id), method: "post" %>
+        <div class="prescription-check-card">
+          <p style="padding-top: 16px">Remember to take your <%= prescription.name %> today</p>
+          <p style="padding-bottom: 8px; padding-top: 8px;">Frequency: <%= prescription.frequency %></p>
+          <%= link_to "Mark done", prescription_checks_path(pid: prescription.id), method: "post", class: "btn btn-primary" %>
         </div>
       <% end %>
     <% end %>
