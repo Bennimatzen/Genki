@@ -1,5 +1,5 @@
-<h3>Hi! <%= current_user.first_name.capitalize %></h3>
-<h5>These are all your active chats:</h5>
+<h3 class="container my-3">Hi! <%= current_user.first_name.capitalize %></h3>
+<h5 class="container">These are all your active chats:</h5>
 
 <% @chats.each do |chat| %>
   <% if chat.unread_messages_count > 0 %>

@@ -1,4 +1,4 @@
-<h3 style="padding-left: 16px;">Hi!</h3>
+<h3 class="container my-3">Hi!</h3>
 
 <p style="margin-top: 16px; padding-left: 16px; padding-right: 8px; font-size: 20px;">This is your medical team:</p>
 
@@ -17,7 +17,7 @@
             <% if Chat.where(doctor: doctor, user: current_user).last %>
               <%= link_to "Resume a chat", chat_path(Chat.where(doctor: doctor, user: current_user).last) %>
             <% else %>
-              <%= link_to "Stat a chat", chats_path(doctor: doctor.id), method: :post%>
+              <%= link_to "Start a chat", chats_path(doctor: doctor.id), method: :post%>
             <% end %>
 
             <p><%= link_to "Make an appointment", new_doctor_appointment_path(doctor) %> </p>
