@@ -1,4 +1,4 @@
-<h3 class="container mb-5">Treatment overview</h3>
+<h3 class="container my-3">Treatment overview</h3>
 <h6 class="container"><strong>Specialist appointment for <%= current_user.first_name %></strong></h6>
 <p class="container appointment-summary">with Dr.<%= @appointment_summary.doctor.user.first_name %><%= @appointment_summary.doctor.user.last_name %> at <%= @appointment_summary.appointment.start_date.strftime("%a %l:%M %e %b %y") %></p>
 

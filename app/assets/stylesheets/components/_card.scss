@@ -1,7 +1,7 @@
 .dashboard-card {
   width: 90%;
   margin: 8px auto;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
   border-radius: 16px;
   text-align: center;
   font-size: 16px;
@@ -11,7 +11,7 @@
 .dashboard-card.new-prescription {
   width: 90%;
   margin: 8px auto;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
   border-radius: 16px;
   text-align: center;
   font-size: 16px;
@@ -21,7 +21,7 @@
 .prescription-card {
   width: 90%;
   margin: 16px 0;
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
   border-radius: 16px;
   // text-align: center;
   font-size: 16px;
@@ -33,7 +33,7 @@
 .slider-card-graph {
   width: 80%;
   margin: 16px auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
   border-radius: 16px;
   text-align: center;
   font-size: 16px;

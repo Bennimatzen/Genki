@@ -15,7 +15,7 @@
 <% end %>
 
 
-<h3 class="container mb-5"><%= greeting %>, <%= @user.first_name %></h3>
+<h3 class="container my-3"><%= greeting %>, <%= @user.first_name %></h3>
 
 <div class="d-flex justify-content-around">
   <button class="btn user-tab tab" data-target="symptoms">Symptoms
@@ -45,7 +45,7 @@
 </div>
 
 <div class="user-ul active" id="symptoms">
-  <div class="dashboard-card">
+  <div class="dashboard-card p-3 mt-3">
     <% if SymptomCheck.where(user: current_user).last.created_at.to_date != Date.today %>
       <%= simple_form_for @symptom_check do |f| %>
         <%= f.input :rating, label: 'How is your cough today?', as: :range, input_html: { min: 1, max: 5, id: 'rating-slider' }, required: false %>
@@ -59,7 +59,7 @@
     <% end %>
   </div>
 
-  <div class="dashboard-card" id="symptom-chart">
+  <div class="dashboard-card p-3 mt-3" id="symptom-chart">
     <h5>History</h5>
     <%= line_chart @sliced, ytitle: "Severity", height: "200px", colors: ["#0da4c8", "#0da4c8"], showLines: 'false',
     library:
