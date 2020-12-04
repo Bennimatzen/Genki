@@ -115,7 +115,7 @@ Message.create!(chat: chat, user: arthur, content: "No problem, if it gets worse
 puts "Creating appointments..."
 old_appointment1 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,9,15,9,0,0), end_date: DateTime.new(2020,9,15,10,0,0), record_share: true, user: ellie, doctor: dr_arthur, reason: "Routine follow-up")
 old_appointment2 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,10,5,9,0,0), end_date: DateTime.new(2020,10,5,10,0,0), record_share: true, user: ellie, doctor: dr_lucy, reason: "Flu shot")
-old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,11,8,10,0,0), record_share: true, user: ellie, doctor: dr_arthur, reason: "Chest infection")
+old_appointment3 = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2020,11,8,9,0,0), end_date: DateTime.new(2020,12,4,10,0,0), record_share: true, user: ellie, doctor: dr_arthur, reason: "Chest infection")
 new_appointment = Appointment.create!(appointment_type: "Remote", start_date: DateTime.new(2021,01,5,9,0,0), end_date: DateTime.new(2021,01,5,10,0,0), record_share: true, user: ellie, doctor: dr_lucy, reason: "Vaccination for COVID-19")
 
 puts "Creating appointment summaries..."
