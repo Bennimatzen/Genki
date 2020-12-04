@@ -1,5 +1,5 @@
-<h3 style="padding-left: 8px;">Thank you for joining us ❤️</h3>
-<p style="padding-left: 5px; padding-right: 5px; font-size: 22px;">This app was proudly made by the following Batch 473 Le Wagon Students:</p>
+<h3 class="container my-1">Thank you for joining us ❤️</h3>
+<h6 class="container mb-3">Made by the following #473 Le Wagon students:</h6>
 
 <div class="container" style="margin-bottom: 64px;">
   <% @doctors.each do |doctor| %>
@@ -9,7 +9,17 @@
       <div class="container genki-card">
         <div class="first-div">
           <%= image_tag doctor.user.photo, class: "avatar-large" %>
-          <p class="genki-name"><%= doctor.user.first_name %> <%= doctor.user.last_name %></p>
+          <p class="genki-name"><%= doctor.user.first_name %> <%= doctor.user.last_name %>
+            <% if doctor.user.last_name == "Qureshi" %>
+              <%= '❤️ Rails' %>
+            <% elsif doctor.user.last_name == "Bhaila" %>
+              <%= '❤️ frontend' %>
+            <% elsif doctor.user.last_name == "Matzen" %>
+              <%= '🇩🇪❤️ design' %>
+            <% elsif doctor.user.last_name == "Benitez" %>
+              <%= '❤️ backend' %>
+            <% end %>
+          </p>
         </div>
         <div class="second-div">
           <p class="genki-specialty">
