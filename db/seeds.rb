@@ -89,10 +89,10 @@ SymptomCheck.create!(rating: 1, symptom_id: symptom.id, user_id: ellie.id, creat
 puts "Creating Pharmacies"
 Pharmacy.create(name:"Boots", address:"Black Chruch Lane")
 Pharmacy.create(name:"Lloyds Pharmacy", address:"138 Kingsland Rd, London E2 8DY")
-Pharmacy.create(name:"Superdrug", address:"22 Tudor St, London EC4Y 0AY, Vereinigtes Königreich")
-Pharmacy.create(name:"Asda Pharmacy", address:"83 Guilford St, Bloomsbury, London WC1N 1DD, Vereinigtes Königreich")
-Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB, Vereinigtes Königreich")
-Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London, Vereinigtes Königreich")
+Pharmacy.create(name:"Superdrug", address:"22 Tudor St, London EC4Y 0AY")
+Pharmacy.create(name:"Asda Pharmacy", address:"83 Guilford St, Bloomsbury, London WC1N 1DD")
+Pharmacy.create(name:"Gordons Chemis", address:"33 Page's Walk, London SE1 4SB")
+Pharmacy.create(name:"Morrisons Pharmacy", address:"Stockwell, London")
 
 puts "Creating prescriptions..."
 Prescription.create!(name: "Doxycycline", dose: "200mg", frequency: "Once daily", duration: 14, doctor_id: Doctor.all.sample.id, user_id: ellie.id, price: 9, sku: 'Doxycycline-200mg-1-2')
