@@ -55,19 +55,19 @@ dr_lucy = Doctor.create!(specialty: "GP", description: "I am here to help you wi
 puts "Creating Genki Team!"
 areeb = User.create!(email: "areeb@genki.org", password: "secret", first_name: "Areeb", last_name: "Bhaila", dob: DateTime.new(1992,5,12), gender: "Male", nhs_number: 12345678)
 areeb.photo.attach(io: areeb_img, filename: 'areeb.jpeg', content_type: 'image/jpeg')
-dr_areeb = Doctor.create!(specialty: "Fixing margins and padding", description: "DO NOT mess with his front end. Loves bowling and eating at the Vietnamese place", user_id: areeb.id)
+dr_areeb = Doctor.create!(specialty: "Fixing margins and padding", description: "DO NOT mess with his front end. Loves bowling and eating at the Vietnamese place.", user_id: areeb.id)
 
 pepe = User.create!(email: "pepe@genki.org", password: "secret", first_name: "Jose", last_name: "Benitez", dob: DateTime.new(1992,8,12), gender: "Sexy Bot", nhs_number: 12345678)
 pepe.photo.attach(io: pepe_img, filename: 'pepe.jpeg', content_type: 'image/jpeg')
-dr_pepe = Doctor.create!(specialty: "Telling bad jokes", description: "Will provide emotional support right before making things really awkward. Will cure you just to avoid eye contact", user_id: pepe.id)
+dr_pepe = Doctor.create!(specialty: "Telling bad jokes", description: "Will provide emotional support right before making things really awkward. Churns out features for fun.", user_id: pepe.id)
 
 bennie = User.create!(email: "bennie@genki.org", password: "secret", first_name: "Benjamin", last_name: "Matzen", dob: DateTime.new(2001,1,26), gender: "Male", nhs_number: 12345678)
 bennie.photo.attach(io: bennie_img, filename: 'bennie.jpeg', content_type: 'image/jpeg')
-dr_bennie = Doctor.create!(specialty: "<br> & designing pages", description: "He will fix you up and create awesome maps, but be careful; he might shoot you in a safari and put you up next to the gazelles in his wall in Germany", user_id: bennie.id)
+dr_bennie = Doctor.create!(specialty: "<br>", description: "Enjoys renting wildly expensive cars and designing awesome web pages.", user_id: bennie.id)
 
 raeesa = User.create!(email: "raeesa@genki.org", password: "secret", first_name: "Raeesa", last_name: "Qureshi", dob: DateTime.new(1993,4,10), gender: "Female", nhs_number: 12345678)
 raeesa.photo.attach(io: raeesa_img, filename: 'raeesa.jpeg', content_type: 'image/jpeg')
-dr_raeesa = Doctor.create!(specialty: "Waking up 10 seconds before the lecture", description: "Dreaming of one day making it to campus", user_id: raeesa.id)
+dr_raeesa = Doctor.create!(specialty: "Waking up 10 seconds before the lecture", description: "Dreaming of one day making it to campus.", user_id: raeesa.id)
 
 puts "Creating diseases..."
 disease = Disease.create!(user: ellie, name: "Cystic Fibrosis")
